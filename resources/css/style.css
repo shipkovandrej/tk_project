@@ -13926,7 +13926,7 @@ ul.direction li {
 .car_slider .price_call .price, .service_slider .price_call .price {
     font-family: bold;
     font-size: 16pt;
-    background: url(../images/icons/map.png) no-repeat left center;
+    background: url(../../public/images/icons/map.png) no-repeat left center;
     padding-left: 25px
 }
 
@@ -14511,7 +14511,7 @@ h2 {
 }
 
 .widgetblock-shortdigits {
-    background: #00524c url(../images/greenbg.jpg);
+    background: #00524c url(../../public/images/greenbg.jpg);
     background-repeat: no-repeat;
     background-position: 100px;
     color: #fff
@@ -14636,7 +14636,7 @@ h2 {
     display: block;
     width: 20px;
     height: 20px;
-    background: url(../images/icons/arrow-right.png) no-repeat center;
+    background: url(../../public/images/icons/arrow-right.png) no-repeat center;
     position: absolute;
     right: 10px;
     top: 50%;
@@ -14781,7 +14781,7 @@ h2 {
 }
 
 .phone_callback .phone {
-    background: url(../images/icons/phone.png) no-repeat left;
+    background: url(../../public/images/icons/phone.png) no-repeat left;
     padding-left: 25px;
     background-size: 19px
 }
@@ -14825,7 +14825,7 @@ h2 {
     padding-top: 25px;
     padding-bottom: 25px;
     text-transform: uppercase;
-    background: url(../images/icons/ham.png) no-repeat left center;
+    background: url(../../public/images/icons/ham.png) no-repeat left center;
     padding-left: 30px;
     border-right: 1px solid #15645e;
     cursor: pointer
@@ -14873,7 +14873,7 @@ h2 {
 footer {
     background: var(--color-main);
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     color: #fff;
     margin-top: 40px
 }
@@ -15100,7 +15100,7 @@ body {
 
 @font-face {
     font-family: 'bold';
-    src: url(../fonts/Roboto-Bold.ttf) format('truetype');
+    src: url(../../public/fonts/Roboto-Bold.ttf) format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap
@@ -15108,7 +15108,7 @@ body {
 
 @font-face {
     font-family: 'light';
-    src: url(../fonts/Roboto-Regular.ttf) format('truetype');
+    src: url(../../public/fonts/Roboto-Regular.ttf) format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap
@@ -15433,7 +15433,7 @@ body {
     }
 
     .widgetblock.follow {
-        background: url(../images/follow-map.jpg) no-repeat right center;
+        background: url(../../public/images/follow-map.jpg) no-repeat right center;
         margin-top: 40px;
         margin-bottom: 40px;
         background-size: contain
@@ -15448,7 +15448,7 @@ body {
     }
 
     .getcostfeedback {
-        background: url(../images/getcostfeedback.jpg) no-repeat right;
+        background: url(../../public/images/getcostfeedback.jpg) no-repeat right;
         padding-top: 80px;
         padding-bottom: 80px
     }
@@ -15497,7 +15497,8 @@ body {
 
     h1 {
         font-family: bold;
-        font-size: 30pt
+        font-size: 30pt;
+
     }
 
     .dropdown ul a {
@@ -16058,7 +16059,7 @@ body.hc-nav-open {
 }
 
 .mobileiconphone {
-    background: #fff url(../images/icons/icon-phone-black.png) no-repeat center
+    background: #fff url(../../public/images/icons/icon-phone-black.png) no-repeat center
 }
 
 .ccol2 {
