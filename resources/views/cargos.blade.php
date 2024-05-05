@@ -25,7 +25,7 @@
             <li>
                 <div class="service_item" onclick="location.href='https://www.tk-go.ru/perevozka-opasnyh-gruzov/'">
                     <div class="img"><a class="goto" title="Перевозка опасных грузов"
-                                        href="../perevozka-opasnyh-gruzov/index.html"><img
+                                        href="{{ route('cargo1') }}"><img
                                 src="../cache/service_category_photos/500x300x0x63f8bd87002f3.jpg"
                                 alt="Перевозка опасных грузов"></a></div>
                     <span class="counter">01</span>
@@ -40,7 +40,7 @@
                 <div class="service_item"
                      onclick="location.href='https://www.tk-go.ru/perevozka-skoroportyaschihsya-gruzov/'">
                     <div class="img"><a class="goto" title="Перевозка скоропортящихся грузов"
-                                        href="../perevozka-skoroportyaschihsya-gruzov/index.html"><img
+                                        href="{{ route('cargo2') }}"><img
                                 src="../cache/service_category_photos/500x300x0x63fc97e18d3bb.jpg"
                                 alt="Перевозка скоропортящихся грузов"></a></div>
                     <span class="counter">02</span>
@@ -55,7 +55,7 @@
                 <div class="service_item"
                      onclick="location.href='https://www.tk-go.ru/perevozka-farmacevticheskih-tovarov/'">
                     <div class="img"><a class="goto" title="Перевозка фармацевтических товаров"
-                                        href="../perevozka-farmacevticheskih-tovarov/index.html"><img
+                                        href="{{ route('cargo3') }}"><img
                                 src="../cache/service_category_photos/500x300x0x63fc9a7fe0d13.jpg"
                                 alt="Перевозка фармацевтических товаров"></a></div>
                     <span class="counter">03</span>
@@ -69,7 +69,7 @@
             <li>
                 <div class="service_item" onclick="location.href='https://www.tk-go.ru/perevozka-krupnogabaritnyh-gruzov/'">
                     <div class="img"><a class="goto" title="Перевозка крупногабаритных грузов"
-                                        href="../perevozka-krupnogabaritnyh-gruzov/index.html"><img
+                                        href="{{ route('cargo4') }}"><img
                                 src="../cache/service_category_photos/500x300x0x63fc9bbaefdd6.jpg"
                                 alt="Перевозка крупногабаритных грузов"></a></div>
                     <span class="counter">04</span>
@@ -83,7 +83,7 @@
             <li>
                 <div class="service_item" onclick="location.href='https://www.tk-go.ru/perevozka-sbornyh-gruzov/'">
                     <div class="img"><a class="goto" title="Перевозка сборных грузов "
-                                        href="../perevozka-sbornyh-gruzov/index.html"><img
+                                        href="{{ route('cargo5') }}"><img
                                 src="../cache/service_category_photos/500x300x0x63fc9fd4117f2.jpg"
                                 alt="Перевозка сборных грузов "></a></div>
                     <span class="counter">05</span>

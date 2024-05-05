@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row event-item-category articles">
             <div class="col-md-6 col-xl-3">
-                <a href="kak-poschitat-ob-em-gruza.html" class="event_item">
+                <a href="{{ route('info1') }}" class="event_item">
 
                     <img src="../cache/events_photos/400x500x1x63f8b33b6dacb.jpg"/>
                     <span class="info_wrapper">
@@ -30,7 +30,7 @@
 <span class="anons">Этот вопрос мы часто слышим от наших клиентов, поскольку выбор транспорта и стоимость перевозки зависят напрямую от объема груза...</span></span></a>
             </div>
             <div class="col-md-6 col-xl-3">
-                <a href="pravila-provedeniya-pogruzochno-razgruzochnyh-rabot.html" class="event_item">
+                <a href="{{ route('info2') }}" class="event_item">
 
                     <img src="../cache/events_photos/400x500x1x63f8b39086d66.jpg"/>
                     <span class="info_wrapper">
@@ -39,7 +39,7 @@
     class="anons">В целях обеспечения безопасности при выполнении погрузочно-разгрузочных работ необходимо...</span></span></a>
             </div>
             <div class="col-md-6 col-xl-3">
-                <a href="kak-opredelit-rasstoyanie-perevozki-gruza.html" class="event_item">
+                <a href="{{ route('info3') }}" class="event_item">
 
                     <img src="../cache/events_photos/400x500x1x63f8b3e2ae50e.jpg"/>
                     <span class="info_wrapper">
@@ -47,7 +47,7 @@
 <span class="anons">Определение расстояния перевозки грузов играет важную роль при разработке плана перевозок, расчёте тарифов...</span></span></a>
             </div>
             <div class="col-md-6 col-xl-3">
-                <a href="perevozka-gruza-refrizheratorom.html" class="event_item">
+                <a href="{{ route('info4') }}" class="event_item">
 
                     <img src="../cache/events_photos/400x500x1x63f8b3bddbeb8.jpg"/>
                     <span class="info_wrapper">
