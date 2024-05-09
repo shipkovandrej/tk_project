@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/about', 'about')->name('about');
@@ -34,3 +35,6 @@ Route::view('/avtopoezd', 'avtopark.car2')->name('car2');
 Route::view('/odinochka', 'avtopark.car3')->name('car3');
 Route::view('/gazel', 'avtopark.car4')->name('car4');
 Route::view('/tral', 'avtopark.car5')->name('car5');
+
+//test page
+Route::get('/test', [TestController::class, 'index'])->name('test');
