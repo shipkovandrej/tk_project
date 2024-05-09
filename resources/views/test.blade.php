@@ -8,9 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-@foreach($types as $type)
-id = {{ $type->id }}<br>
-name = {{ $type->name }}<br>
+@foreach($articles as $article)
+id = {{ $article->id }}<br>
+title = {{ $article->title }}<br>
+content = {{ $article->content }}<br>
+img = {{ $article->img->path }}<br>
     <hr>
 @endforeach
 </body>
