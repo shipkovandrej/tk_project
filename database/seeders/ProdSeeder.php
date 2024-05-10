@@ -69,5 +69,190 @@ class ProdSeeder extends Seeder
             'content' => 'Content4',
             'img_id' => 4,
         ]);
+
+        //метод загрузки
+        DB::table('methods')->insert([
+            'name' => 'Задний',
+        ]);
+        DB::table('methods')->insert([
+            'name' => 'Боковой',
+        ]);
+        DB::table('methods')->insert([
+            'name' => 'Верхний',
+        ]);
+        DB::table('methods')->insert([
+            'name' => 'Аппарели',
+        ]);
+
+        //Прицепы
+        DB::table('trailers')->insert([
+            'length' => 8,
+            'width' => 2.45,
+            'height' => 3,
+        ]);
+
+        //параметры
+
+        //для фуры
+        DB::table('parameters')->insert([
+            'payload' => 20,
+            'length' => 13.4,
+            'width' => 2.45,
+            'height' => 2.45,
+            'volume' => 82,
+            'price' => 50,
+            'psp' => 33,
+        ]);
+        DB::table('parameters')->insert([
+            'payload' => 22,
+            'length' => 13.4,
+            'width' => 2.45,
+            'height' => 2.8,
+            'volume' => 92,
+            'price' => 50,
+            'psp' => 33,
+        ]);
+        DB::table('parameters')->insert([
+            'payload' => 24,
+            'length' => 13.4,
+            'width' => 2.45,
+            'height' => 3,
+            'volume' => 100,
+            'price' => 50,
+            'psp' => 33,
+        ]);
+
+        //для автопоезда
+        DB::table('parameters')->insert([
+            'payload' => 20,
+            'length' => 8,
+            'width' => 2.45,
+            'height' => 3,
+            'volume' => 120,
+            'price' => 50,
+            'psp' => 38,
+            'trailer_id' => 1,
+        ]);
+
+        //для одиночек
+        DB::table('parameters')->insert([
+            'payload' => 10,
+            'length' => 6.5,
+            'width' => 2.45,
+            'height' => 2.5,
+            'volume' => 40,
+            'price' => 50,
+            'psp' => 16,
+        ]);
+        DB::table('parameters')->insert([
+            'payload' => 10,
+            'length' => 7.2,
+            'width' => 2.45,
+            'height' => 2.55,
+            'volume' => 45,
+            'price' => 50,
+            'psp' => 18,
+        ]);
+        DB::table('parameters')->insert([
+            'payload' => 10,
+            'length' => 8,
+            'width' => 2.45,
+            'height' => 2.55,
+            'volume' => 50,
+            'price' => 50,
+            'psp' => 20,
+        ]);
+
+        DB::table('parameters')->insert([
+            'payload' => 3,
+            'length' => 6,
+            'width' => 2,
+            'height' => 1.8,
+            'volume' => 22,
+            'price' => 50,
+            'psp' => 8,
+        ]);
+        DB::table('parameters')->insert([
+            'payload' => 3,
+            'length' => 4,
+            'width' => 2,
+            'height' => 2,
+            'volume' => 16,
+            'price' => 50,
+            'psp' => 6,
+        ]);
+        DB::table('parameters')->insert([
+            'payload' => 5,
+            'length' => 5,
+            'width' => 2.45,
+            'height' => 2.45,
+            'volume' => 30,
+            'price' => 50,
+            'psp' => 12,
+        ]);
+
+        DB::table('parameters')->insert([
+            'payload' => 5,
+            'length' => 6,
+            'width' => 2.45,
+            'height' => 2.45,
+            'volume' => 36,
+            'price' => 50,
+            'psp' => 14,
+        ]);
+        DB::table('parameters')->insert([
+            'payload' => 7,
+            'length' => 6.5,
+            'width' => 2.45,
+            'height' => 2.45,
+            'volume' => 40,
+            'price' => 50,
+            'psp' => 16,
+        ]);
+
+        //для газели
+        DB::table('parameters')->insert([
+            'payload' => 1.5,
+            'length' => 3,
+            'width' => 2,
+            'height' => 1.5,
+            'volume' => 9,
+            'price' => 50,
+            'psp' => 4,
+        ]);
+        DB::table('parameters')->insert([
+            'payload' => 1.5,
+            'length' => 3,
+            'width' => 2,
+            'height' => 1.8,
+            'volume' => 14,
+            'price' => 50,
+            'psp' => 6,
+        ]);
+        DB::table('parameters')->insert([
+            'payload' => 2,
+            'length' => 6,
+            'width' => 2,
+            'height' => 1.8,
+            'volume' => 22,
+            'price' => 50,
+            'psp' => 8,
+        ]);
+
+        //для тралла
+        DB::table('parameters')->insert([
+            'payload' => 50,
+            'length' => 11,
+            'width' => 3.1,
+            'height' => 3.5,
+            'price' => 50,
+        ]);
+        DB::table('parameters')->insert([
+            'payload' => 60,
+            'length' => 16,
+            'width' => 3.1,
+            'height' => 3.5,
+            'price' => 50,
+        ]);
     }
 }
