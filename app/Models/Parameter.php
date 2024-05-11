@@ -12,6 +12,6 @@ class Parameter extends Model
 
     public function trailer()
     {
-        return $this->belongsTo(Trailer::class, 'id', 'trailer_id');
+        return $this->belongsTo(Trailer::class, 'trailer_id', 'id');
     }
 }

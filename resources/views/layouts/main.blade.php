@@ -91,14 +91,14 @@
                         <li class="dropdown ">
                             <a href="{{ route('cargos') }}" class="dropdown-toggle">Что мы перевозим</a>
                             <ul class="">
-                                <li><a href="../perevozka-opasnyh-gruzov/index.html">Перевозка опасных грузов</a></li>
-                                <li><a href="../perevozka-skoroportyaschihsya-gruzov/index.html">Перевозка
+                                <li><a href="{{ route('cargo1') }}">Перевозка опасных грузов</a></li>
+                                <li><a href="{{ route('cargo2') }}">Перевозка
                                         скоропортящихся грузов</a></li>
-                                <li><a href="../perevozka-farmacevticheskih-tovarov/index.html">Перевозка
+                                <li><a href="{{ route('cargo3') }}">Перевозка
                                         фармацевтических товаров</a></li>
-                                <li><a href="../perevozka-krupnogabaritnyh-gruzov/index.html">Перевозка крупногабаритных
+                                <li><a href="{{ route('cargo4') }}">Перевозка крупногабаритных
                                         грузов</a></li>
-                                <li><a href="../perevozka-sbornyh-gruzov/index.html">Перевозка сборных грузов </a></li>
+                                <li><a href="{{ route('cargo5') }}">Перевозка сборных грузов </a></li>
                             </ul>
                         </li>
                         <li class="dropdown ">
@@ -156,14 +156,14 @@
                     <li class="dropdown ">
                         <a href="{{ route('cargos') }}" class="dropdown-toggle">Что мы перевозим</a>
                         <ul class="">
-                            <li><a href="../perevozka-opasnyh-gruzov/index.html">Перевозка опасных грузов</a></li>
-                            <li><a href="../perevozka-skoroportyaschihsya-gruzov/index.html">Перевозка скоропортящихся
+                            <li><a href="{{ route('cargo1') }}">Перевозка опасных грузов</a></li>
+                            <li><a href="{{ route('cargo2') }}">Перевозка скоропортящихся
                                     грузов</a></li>
-                            <li><a href="../perevozka-farmacevticheskih-tovarov/index.html">Перевозка фармацевтических
+                            <li><a href="{{ route('cargo3') }}">Перевозка фармацевтических
                                     товаров</a></li>
-                            <li><a href="../perevozka-krupnogabaritnyh-gruzov/index.html">Перевозка крупногабаритных
+                            <li><a href="{{ route('cargo4') }}">Перевозка крупногабаритных
                                     грузов</a></li>
-                            <li><a href="../perevozka-sbornyh-gruzov/index.html">Перевозка сборных грузов </a></li>
+                            <li><a href="{{ route('cargo5') }}">Перевозка сборных грузов </a></li>
                         </ul>
                     </li>
                     <li class="dropdown ">

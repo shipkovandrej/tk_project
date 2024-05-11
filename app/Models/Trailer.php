@@ -11,6 +11,6 @@ class Trailer extends Model
 
     public function parameters()
     {
-        return $this->hasMany(Parameter::class, 'id', 'trailer_id');
+        return $this->hasMany(Parameter::class, 'trailer_id', 'id');
     }
 }
