@@ -2,6 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
+use App\Models\Img;
+use App\Models\Method;
+use App\Models\Parameter;
+use App\Models\Trailer;
+use App\Models\Truck;
+use App\Models\TruckType;
+use App\Models\Type;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,86 +23,108 @@ class ProdSeeder extends Seeder
     public function run(): void
     {
         //Типы кузова
-        DB::table('types')->insert([
+        Type::create(array(
             'name' => 'Тентованный',
-        ]);
-        DB::table('types')->insert([
+        ));
+        Type::create(array(
             'name' => 'Рефрижератор',
-        ]);
-        DB::table('types')->insert([
+        ));
+        Type::create(array(
             'name' => 'Изотермический',
-        ]);
-        DB::table('types')->insert([
+        ));
+        Type::create(array(
             'name' => 'Бортовой',
-        ]);
-        DB::table('types')->insert([
+        ));
+        Type::create(array(
             'name' => 'Без бортов',
-        ]);
-        DB::table('types')->insert([
+        ));
+        Type::create(array(
             'name' => 'Низкорамная площадка',
-        ]);
+        ));
 
         //пикчи
-        DB::table('imgs')->insert([
+        //полезная информация
+        Img::create(array(
             'path' => 'public/cache/events_photos/600x600x0x63f8b33b6dacb.jpg',
-        ]);
-        DB::table('imgs')->insert([
+        ));
+        Img::create(array(
             'path' => 'public/cache/events_photos/600x600x0x63f8b39086d66.jpg',
-        ]);
-        DB::table('imgs')->insert([
+        ));
+        Img::create(array(
             'path' => 'public/cache/events_photos/600x600x0x63f8b3e2ae50e.jpg',
-        ]);
-        DB::table('imgs')->insert([
+        ));
+        Img::create(array(
             'path' => 'public/cache/events_photos/600x600x0x63f8b3bddbeb8.jpg',
-        ]);
+        ));
+        //фура
+        Img::create(array(
+            'path' => 'public/cache/goods_category_photos/300x300x0x64083f0f9f8da.jpg'
+        ));
+        //автопоезд
+        Img::create(array(
+            'path' => 'public/cache/goods_category_photos/300x300x0x64083e2c83cc7.jpg'
+        ));
+        //одиночка
+        Img::create(array(
+            'path' => 'public/cache/goods_category_photos/300x300x0x64083e6e9b3d1.jpg'
+        ));
+        //газель
+        Img::create(array(
+            'path' => 'public/cache/goods_category_photos/300x300x0x64083eb0efa8d.jpg'
+        ));
+        //трал
+        Img::create(array(
+            'path' => 'public/cache/goods_category_photos/300x300x0x64083d6cf4054.jpg'
+        ));
+
 
         //статьи
-        DB::table('articles')->insert([
+        Article::create(array(
             'title' => 'Как посчитать объем груза?',
             'content' => 'Content1',
             'img_id' => 1,
-        ]);
-        DB::table('articles')->insert([
+        ));
+        Article::create(array(
             'title' => 'Правила проведения погрузочно-разгрузочных работ',
             'content' => 'Content2',
             'img_id' => 2,
-        ]);
-        DB::table('articles')->insert([
+        ));
+        Article::create(array(
             'title' => 'Как определить расстояние перевозки груза?',
             'content' => 'Content3',
             'img_id' => 3,
-        ]);
-        DB::table('articles')->insert([
+        ));
+        Article::create(array(
             'title' => 'Перевозка груза рефрижератором',
             'content' => 'Content4',
             'img_id' => 4,
-        ]);
+        ));
 
         //метод загрузки
-        DB::table('methods')->insert([
+        Method::create(array(
             'name' => 'Задний',
-        ]);
-        DB::table('methods')->insert([
+        ));
+        Method::create(array(
             'name' => 'Боковой',
-        ]);
-        DB::table('methods')->insert([
+        ));
+        Method::create(array(
             'name' => 'Верхний',
-        ]);
-        DB::table('methods')->insert([
+        ));
+        Method::create(array(
             'name' => 'Аппарели',
-        ]);
+        ));
 
         //Прицепы
-        DB::table('trailers')->insert([
+        Trailer::create(array(
             'length' => 8,
             'width' => 2.45,
             'height' => 3,
-        ]);
+        ));
 
         //параметры
 
         //для фуры
-        DB::table('parameters')->insert([
+        Parameter::create(array(
             'payload' => 20,
             'length' => 13.4,
             'width' => 2.45,
@@ -102,8 +132,8 @@ class ProdSeeder extends Seeder
             'volume' => 82,
             'price' => 50,
             'psp' => 33,
-        ]);
-        DB::table('parameters')->insert([
+        ));
+        Parameter::create(array(
             'payload' => 22,
             'length' => 13.4,
             'width' => 2.45,
@@ -111,8 +141,8 @@ class ProdSeeder extends Seeder
             'volume' => 92,
             'price' => 50,
             'psp' => 33,
-        ]);
-        DB::table('parameters')->insert([
+        ));
+        Parameter::create(array(
             'payload' => 24,
             'length' => 13.4,
             'width' => 2.45,
@@ -120,10 +150,10 @@ class ProdSeeder extends Seeder
             'volume' => 100,
             'price' => 50,
             'psp' => 33,
-        ]);
+        ));
 
         //для автопоезда
-        DB::table('parameters')->insert([
+        Parameter::create(array(
             'payload' => 20,
             'length' => 8,
             'width' => 2.45,
@@ -132,10 +162,10 @@ class ProdSeeder extends Seeder
             'price' => 50,
             'psp' => 38,
             'trailer_id' => 1,
-        ]);
+        ));
 
         //для одиночек
-        DB::table('parameters')->insert([
+        Parameter::create(array(
             'payload' => 10,
             'length' => 6.5,
             'width' => 2.45,
@@ -143,8 +173,8 @@ class ProdSeeder extends Seeder
             'volume' => 40,
             'price' => 50,
             'psp' => 16,
-        ]);
-        DB::table('parameters')->insert([
+        ));
+        Parameter::create(array(
             'payload' => 10,
             'length' => 7.2,
             'width' => 2.45,
@@ -152,8 +182,8 @@ class ProdSeeder extends Seeder
             'volume' => 45,
             'price' => 50,
             'psp' => 18,
-        ]);
-        DB::table('parameters')->insert([
+        ));
+        Parameter::create(array(
             'payload' => 10,
             'length' => 8,
             'width' => 2.45,
@@ -161,9 +191,9 @@ class ProdSeeder extends Seeder
             'volume' => 50,
             'price' => 50,
             'psp' => 20,
-        ]);
+        ));
 
-        DB::table('parameters')->insert([
+        Parameter::create(array(
             'payload' => 3,
             'length' => 6,
             'width' => 2,
@@ -171,8 +201,8 @@ class ProdSeeder extends Seeder
             'volume' => 22,
             'price' => 50,
             'psp' => 8,
-        ]);
-        DB::table('parameters')->insert([
+        ));
+        Parameter::create(array(
             'payload' => 3,
             'length' => 4,
             'width' => 2,
@@ -180,8 +210,8 @@ class ProdSeeder extends Seeder
             'volume' => 16,
             'price' => 50,
             'psp' => 6,
-        ]);
-        DB::table('parameters')->insert([
+        ));
+        Parameter::create(array(
             'payload' => 5,
             'length' => 5,
             'width' => 2.45,
@@ -189,9 +219,9 @@ class ProdSeeder extends Seeder
             'volume' => 30,
             'price' => 50,
             'psp' => 12,
-        ]);
+        ));
 
-        DB::table('parameters')->insert([
+        Parameter::create(array(
             'payload' => 5,
             'length' => 6,
             'width' => 2.45,
@@ -199,8 +229,8 @@ class ProdSeeder extends Seeder
             'volume' => 36,
             'price' => 50,
             'psp' => 14,
-        ]);
-        DB::table('parameters')->insert([
+        ));
+        Parameter::create(array(
             'payload' => 7,
             'length' => 6.5,
             'width' => 2.45,
@@ -208,10 +238,10 @@ class ProdSeeder extends Seeder
             'volume' => 40,
             'price' => 50,
             'psp' => 16,
-        ]);
+        ));
 
         //для газели
-        DB::table('parameters')->insert([
+        Parameter::create(array(
             'payload' => 1.5,
             'length' => 3,
             'width' => 2,
@@ -219,8 +249,8 @@ class ProdSeeder extends Seeder
             'volume' => 9,
             'price' => 50,
             'psp' => 4,
-        ]);
-        DB::table('parameters')->insert([
+        ));
+        Parameter::create(array(
             'payload' => 1.5,
             'length' => 3,
             'width' => 2,
@@ -228,8 +258,8 @@ class ProdSeeder extends Seeder
             'volume' => 14,
             'price' => 50,
             'psp' => 6,
-        ]);
-        DB::table('parameters')->insert([
+        ));
+        Parameter::create(array(
             'payload' => 2,
             'length' => 6,
             'width' => 2,
@@ -237,22 +267,58 @@ class ProdSeeder extends Seeder
             'volume' => 22,
             'price' => 50,
             'psp' => 8,
-        ]);
+        ));
 
         //для тралла
-        DB::table('parameters')->insert([
+        Parameter::create(array(
             'payload' => 50,
             'length' => 11,
             'width' => 3.1,
             'height' => 3.5,
             'price' => 50,
-        ]);
-        DB::table('parameters')->insert([
+        ));
+        Parameter::create(array(
             'payload' => 60,
             'length' => 16,
             'width' => 3.1,
             'height' => 3.5,
             'price' => 50,
-        ]);
+        ));
+
+        //виды машин
+
+        //фура
+        Truck::create(array(
+            'name' => 'Фура',
+            'img_id' => 5
+        ));
+        //Автопоезд
+        Truck::create(array(
+            'name' => 'Автопоезд',
+            'img_id' => 6
+        ));
+        //Одиночка
+        Truck::create(array(
+            'name' => 'Одиночка',
+            'img_id' => 7
+        ));
+        //Газель
+        Truck::create(array(
+            'name' => 'Газель',
+            'img_id' => 8
+        ));
+        //Трал
+        Truck::create(array(
+            'name' => 'Трал',
+            'img_id' => 9
+        ));
+
+
+        //связка типов кузова и машин
+        //truck_types
+
+        //фура
+
+
     }
 }

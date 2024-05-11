@@ -5,13 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Parameter extends Model
+class TruckType extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
 
-    public function trailer()
-    {
-        return $this->belongsTo(Trailer::class, 'id', 'trailer_id');
-    }
 }

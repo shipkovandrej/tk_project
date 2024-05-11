@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Trailer extends Model
 {
     use HasFactory;
+
+    public function parameters()
+    {
+        return $this->hasMany(Parameter::class, 'id', 'trailer_id');
+    }
 }
