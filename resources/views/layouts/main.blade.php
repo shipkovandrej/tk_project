@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="logo_wrapper">
-                        <a href="../index.html"><img class="logo" src="../images/logo.png" alt="Грузовое объединение"/></a>
+                        <a href="{{ route('index') }}"><img class="logo" src="../images/logo.png" alt="Грузовое объединение"/></a>
                         <div class="underlogo">Автомобильные перевозки по всей России</div>
                     </div>
 
@@ -146,11 +146,11 @@
                     <li class="dropdown ">
                         <a href="{{ route('avtopark') }}" class="dropdown-toggle">Наш автопарк</a>
                         <ul class="">
-                            <li><a href="../fura/index.html">Фура</a></li>
-                            <li><a href="../avtopoezd/index.html">Автопоезд</a></li>
-                            <li><a href="../odinochka/index.html">Одиночка</a></li>
-                            <li><a href="../gazel/index.html">Газель</a></li>
-                            <li><a href="../tral/index.html">Трал</a></li>
+                            <li><a href="{{ route('car1') }}">Фура</a></li>
+                            <li><a href="{{ route('car2') }}">Автопоезд</a></li>
+                            <li><a href="{{ route('car3') }}">Одиночка</a></li>
+                            <li><a href="{{ route('car4') }}">Газель</a></li>
+                            <li><a href="{{ route('car5') }}">Трал</a></li>
                         </ul>
                     </li>
                     <li class="dropdown ">
@@ -213,7 +213,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="logo_wrapper">
-                    <a href="../index.html"><img class="logo" src="../images/logo.png" alt="Грузовое объединение"/></a>
+                    <a href="{{ route('index') }}"><img class="logo" src="../images/logo.png" alt="Грузовое объединение"/></a>
                     <div class="underlogo">Автомобильные перевозки по всей России</div>
                 </div>
                 <ul class="footer_contacts ul">
@@ -284,7 +284,7 @@
             <tbody>
             <tr>
                 <td class="ccol2">
-                    <div class="logo"><a href="../index.html"><img class="logo" src="../images/logo.png"
+                    <div class="logo"><a href="{{ route('index') }}"><img class="logo" src="../images/logo.png"
                                                                    alt="Грузовое объединение"/></a></div>
                 </td>
                 <td class="col3">

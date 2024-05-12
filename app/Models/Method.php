@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Method extends Model
 {
     use HasFactory;
+
+    public function trucks(){
+        return $this->belongsToMany(Truck::class, 'method_trucks', 'method_id', 'truck_id')->withTimestamps();
+    }
 }

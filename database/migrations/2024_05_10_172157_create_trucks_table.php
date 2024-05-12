@@ -19,9 +19,7 @@ return new class extends Migration
             $table->softDeletes();
 
             $table->unsignedBigInteger('img_id');
-
             $table->index('img_id', 'img_idx2');
-
             $table->foreign('img_id', 'img_idxf2')->on('imgs')->references('id');
         });
     }

@@ -329,6 +329,13 @@ class ProdSeeder extends Seeder
         $truck->types()->sync($types);
 
 
+        //связка машин и методов загрузки
+        //method_trucks
+        $truck = Truck::find(5);
+        $types = Method::find([1,2,3,4]);
+        $truck->methods()->sync($types);
+
+
         //вопросы
         //фура
         Question::create(array(
