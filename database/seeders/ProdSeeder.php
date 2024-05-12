@@ -635,5 +635,28 @@ class ProdSeeder extends Seeder
             'img_id' => "19",
             'mini_img_id' => "14",
         ));
+
+        //связка машин и вопросов
+        //question_trucks
+        //фура
+        $truck = Truck::find(1);
+        $questions = Question::find([1,2,3,4,5]);
+        $truck->questions()->sync($questions);
+        //автопоезд
+        $truck = Truck::find(2);
+        $questions = Question::find([6,7,8]);
+        $truck->questions()->sync($questions);
+        //одиночка
+        $truck = Truck::find(3);
+        $questions = Question::find([9,10,11,12,13]);
+        $truck->questions()->sync($questions);
+        //газель
+        $truck = Truck::find(4);
+        $questions = Question::find([14,15,16,17]);
+        $truck->questions()->sync($questions);
+        //трал
+        $truck = Truck::find(5);
+        $questions = Question::find([18,19,20,21,22]);
+        $truck->questions()->sync($questions);
     }
 }

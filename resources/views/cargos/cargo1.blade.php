@@ -27,10 +27,8 @@
 
     <div class="container-big">
         <div class="service_slider">
-            <picture>
-                <source media="(min-width: 768px)"
-                        srcset="https://www.tk-go.ru/upload/service_category_photos/63f8bc485abc1.jpg">
-                <img src="../upload/service_category_photos/63f5e53cb899e.jpg"></picture>
+
+                <img src="upload/service_category_photos/63f8bc485abc1.jpg">
             <div class="container">
                 <div class="whiteplate">
                     <div class="text">

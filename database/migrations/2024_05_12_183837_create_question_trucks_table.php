@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('question_trucks', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('truck_id');
+            $table->unsignedBigInteger('question_id');
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->index('truck_id', 'truck_question_truck_idx');
+            $table->index('question_id', 'truck_question_question_idx');
+
+            $table->foreign('truck_id', 'truck_question_truck_fk')->on('trucks')->references('id');
+            $table->foreign('question_id', 'truck_question_question_fk')->on('questions')->references('id');
+
         });
     }
 
