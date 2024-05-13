@@ -8,6 +8,7 @@ use App\Models\Img;
 use App\Models\Method;
 use App\Models\Parameter;
 use App\Models\Question;
+use App\Models\Spec;
 use App\Models\Trailer;
 use App\Models\Truck;
 use App\Models\TruckType;
@@ -211,7 +212,7 @@ class ProdSeeder extends Seeder
             'volume' => 40,
             'price' => 50,
             'psp' => 16,
-            'trailer_id' => 1,
+
         ));
         Parameter::create(array(
             'payload' => 10,
@@ -682,5 +683,98 @@ class ProdSeeder extends Seeder
         $cargo = Cargo::find(5);
         $questions = Question::find([40,41,42,43,44]);
         $cargo->questions()->sync($questions);
+
+        //виды грузовиков
+        //specs
+        //фура
+        Spec::create(array(
+            'name' => "Еврофура (объем - 82 м3)",
+            'parameter_id' => "1",
+            'truck_id' => "1",
+        ));
+        Spec::create(array(
+            'name' => "Еврофура (объем - 92 м3)",
+            'parameter_id' => "2",
+            'truck_id' => "1",
+        ));
+        Spec::create(array(
+            'name' => "Еврофура (объем - 100 м3)",
+            'parameter_id' => "3",
+            'truck_id' => "1",
+        ));
+        //автопоезд
+        Spec::create(array(
+            'name' => "Автопоезд",
+            'parameter_id' => "4",
+            'truck_id' => "2",
+        ));
+        //одиночка
+        Spec::create(array(
+            'name' => "Одиночка (10 тонн)",
+            'parameter_id' => "5",
+            'truck_id' => "3",
+        ));
+        Spec::create(array(
+            'name' => "Одиночка (10 тонн)",
+            'parameter_id' => "6",
+            'truck_id' => "3",
+        ));
+        Spec::create(array(
+            'name' => "Одиночка (10 тонн)",
+            'parameter_id' => "7",
+            'truck_id' => "3",
+        ));
+        Spec::create(array(
+            'name' => "Одиночка (3 тонны)",
+            'parameter_id' => "8",
+            'truck_id' => "3",
+        ));
+        Spec::create(array(
+            'name' => "Одиночка (3 тонны)",
+            'parameter_id' => "9",
+            'truck_id' => "3",
+        ));
+        Spec::create(array(
+            'name' => "Одиночка (5 тонн)",
+            'parameter_id' => "10",
+            'truck_id' => "3",
+        ));
+        Spec::create(array(
+            'name' => "Одиночка (5 тонн)",
+            'parameter_id' => "11",
+            'truck_id' => "3",
+        ));
+        Spec::create(array(
+            'name' => "Одиночка (7 тонн)",
+            'parameter_id' => "12",
+            'truck_id' => "3",
+        ));
+        //газель
+        Spec::create(array(
+            'name' => "Газель (1,5 тонны)",
+            'parameter_id' => "13",
+            'truck_id' => "4",
+        ));
+        Spec::create(array(
+            'name' => "Газель (1,5 тонны)",
+            'parameter_id' => "14",
+            'truck_id' => "4",
+        ));
+        Spec::create(array(
+            'name' => "Газель (2 тонны)",
+            'parameter_id' => "15",
+            'truck_id' => "4",
+        ));
+        //трал
+        Spec::create(array(
+            'name' => "Трал (50 тонн)",
+            'parameter_id' => "16",
+            'truck_id' => "5",
+        ));
+        Spec::create(array(
+            'name' => "Трал (60 тонн)",
+            'parameter_id' => "17",
+            'truck_id' => "5",
+        ));
     }
 }

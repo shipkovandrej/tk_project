@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Img;
 use App\Models\Parameter;
+use App\Models\Spec;
 use App\Models\Trailer;
 use App\Models\Truck;
 use App\Models\Type;
@@ -19,8 +20,8 @@ class TestController extends Controller
 
         //$articles = Article::all();
         //return view('test', compact('articles'));
-        $par = Img::find(1);
-        dd($par->article);
+        $res = Spec::find(4);
+        dd($res->truck->types);
 
     }
 }

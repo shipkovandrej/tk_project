@@ -14,4 +14,9 @@ class Parameter extends Model
     {
         return $this->belongsTo(Trailer::class, 'trailer_id', 'id');
     }
+
+    public function spec()
+    {
+        return $this->hasOne(Spec::class, 'id', 'parameter_id');
+    }
 }

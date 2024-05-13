@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Img extends Model
+class Spec extends Model
 {
     use HasFactory;
 
-    public function article()
+    public function parameter()
     {
-        return $this->belongsTo(Article::class, 'id', 'img_id');
+        return $this->hasOne(Parameter::class, 'id', 'parameter_id');
     }
 
     public function truck()
     {
-        return $this->belongsTo(Truck::class, 'id', 'img_id');
+        return $this->belongsTo(Truck::class, 'truck_id', 'id');
     }
 }
