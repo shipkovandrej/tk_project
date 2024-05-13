@@ -12,4 +12,8 @@ class Question extends Model
     public function trucks(){
         return $this->belongsToMany(Truck::class, 'question_trucks', 'question_id', 'truck_id')->withTimestamps();
     }
+
+    public function cargos(){
+        return $this->belongsToMany(Cargo::class, 'cargo_questions', 'question_id', 'cargo_id')->withTimestamps();
+    }
 }

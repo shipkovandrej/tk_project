@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-    <title>О компании</title>
+    <title>Грузовое объединение | Автомобильные перевозки по всей России</title>
 @stop
 
 @section('content')

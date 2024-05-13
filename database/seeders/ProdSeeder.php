@@ -658,5 +658,29 @@ class ProdSeeder extends Seeder
         $truck = Truck::find(5);
         $questions = Question::find([18,19,20,21,22]);
         $truck->questions()->sync($questions);
+
+
+        //связка грущов и вопросов
+        //cargo_questions
+        //опасные
+        $cargo = Cargo::find(1);
+        $questions = Question::find([23,24,25,26,27]);
+        $cargo->questions()->sync($questions);
+        //скоропортящиеся
+        $cargo = Cargo::find(2);
+        $questions = Question::find([28,29,30,31]);
+        $cargo->questions()->sync($questions);
+        //фармацевтические
+        $cargo = Cargo::find(3);
+        $questions = Question::find([32,33,34]);
+        $cargo->questions()->sync($questions);
+        //крупногабаритные
+        $cargo = Cargo::find(4);
+        $questions = Question::find([35,36,37,38,39]);
+        $cargo->questions()->sync($questions);
+        //сборные
+        $cargo = Cargo::find(5);
+        $questions = Question::find([40,41,42,43,44]);
+        $cargo->questions()->sync($questions);
     }
 }
