@@ -20,8 +20,8 @@ class TestController extends Controller
 
         //$articles = Article::all();
         //return view('test', compact('articles'));
-        $res = Spec::find(4);
-        dd($res->truck->types);
+        $res = Truck::all();
+        dd($res);
 
     }
 }

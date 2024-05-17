@@ -56,6 +56,7 @@
                     <div class="p-ttl">Трал</div>
                 </div>
             </li>
+
         </ul>
     </div>
 @endsection

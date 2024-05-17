@@ -328,7 +328,7 @@
                     <div class="service_item" onclick="location.href='https://www.tk-go.ru/perevozka-opasnyh-gruzov/'">
                         <div class="img"><a class="goto" title="Перевозка опасных грузов"
                                             href="{{ route('cargo1') }}"><img
-                                    src="../cache/service_category_photos/500x300x1x63f8bd87002f3.jpg"
+                                    src="../cache/service_category_photos/500x300x0x63f8bd87002f3.jpg"
                                     alt="Перевозка опасных грузов"></a></div>
                         <span class="counter"></span>
                         <div class="title"><img src="../upload/service_category_photos/63f8b7983ef3c.png"> <span>Перевозка опасных грузов</span>
@@ -343,7 +343,7 @@
                          onclick="location.href='https://www.tk-go.ru/perevozka-skoroportyaschihsya-gruzov/'">
                         <div class="img"><a class="goto" title="Перевозка скоропортящихся грузов"
                                             href="{{ route('cargo2') }}"><img
-                                    src="../cache/service_category_photos/500x300x1x63fc97e18d3bb.jpg"
+                                    src="../cache/service_category_photos/500x300x0x63fc97e18d3bb.jpg"
                                     alt="Перевозка скоропортящихся грузов"></a></div>
                         <span class="counter"></span>
                         <div class="title"><img src="../upload/service_category_photos/63fc96cf0fa6f.png"> <span>Перевозка скоропортящихся грузов</span>
@@ -358,7 +358,7 @@
                          onclick="location.href='https://www.tk-go.ru/perevozka-krupnogabaritnyh-gruzov/'">
                         <div class="img"><a class="goto" title="Перевозка крупногабаритных грузов"
                                             href="{{ route('cargo4') }}"><img
-                                    src="../cache/service_category_photos/500x300x1x63fc9bbaefdd6.jpg"
+                                    src="../cache/service_category_photos/500x300x0x63fc9bbaefdd6.jpg"
                                     alt="Перевозка крупногабаритных грузов"></a></div>
                         <span class="counter"></span>
                         <div class="title"><img src="../upload/service_category_photos/63fc9d52bbf52.png"> <span>Перевозка крупногабаритных грузов</span>
@@ -372,7 +372,7 @@
                     <div class="service_item" onclick="location.href='https://www.tk-go.ru/perevozka-sbornyh-gruzov/'">
                         <div class="img"><a class="goto" title="Перевозка сборных грузов "
                                             href="{{ route('cargo5') }}"><img
-                                    src="../cache/service_category_photos/500x300x1x63fc9fd4117f2.jpg"
+                                    src="../cache/service_category_photos/500x300x0x63fc9fd4117f2.jpg"
                                     alt="Перевозка сборных грузов "></a></div>
                         <span class="counter"></span>
                         <div class="title"><img src="../upload/service_category_photos/63fc9fdc513e9.png"> <span>Перевозка сборных грузов </span>
