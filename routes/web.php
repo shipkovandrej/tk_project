@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,11 +32,12 @@ Route::view('/perevozka-sbornyh-gruzov', 'cargos.cargo5')->name('cargo5');
 //avtopark pages
 Route::view('/avtopark', 'avtopark')->name('avtopark');
 
-Route::view('/fura', 'avtopark.car1')->name('car1');
-Route::view('/avtopoezd', 'avtopark.car2')->name('car2');
-Route::view('/odinochka', 'avtopark.car3')->name('car3');
-Route::view('/gazel', 'avtopark.car4')->name('car4');
-Route::view('/tral', 'avtopark.car5')->name('car5');
+Route::view('/avtopark/fura', 'avtopark.car1')->name('car1');
+Route::view('/avtopark/avtopoezd', 'avtopark.car2')->name('car2');
+Route::view('/avtopark/odinochka', 'avtopark.car3')->name('car3');
+Route::view('/avtopark/gazel', 'avtopark.car4')->name('car4');
+Route::view('/avtopark/tral', 'avtopark.car5')->name('car5');
 
 //test page
-Route::get('/test', [TestController::class, 'index'])->name('test');
+Route::get('/avtopark', [TestController::class, 'index'])->name('test');
+Route::get('/avtopark/{slug}', [CarController::class, 'index'])->name('car');

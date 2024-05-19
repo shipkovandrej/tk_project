@@ -8,12 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-@foreach($articles as $article)
-id = {{ $article->id }}<br>
-title = {{ $article->title }}<br>
-content = {{ $article->content }}<br>
-img = {{ $article->img->path }}<br>
-    <hr>
-@endforeach
+<a href="{{ route('test1', ['slug' => $data['string']]) }}">ссылка</a>
 </body>
 </html>

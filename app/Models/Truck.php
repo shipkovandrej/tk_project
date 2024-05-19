@@ -30,4 +30,8 @@ class Truck extends Model
     {
         return $this->hasMany(Spec::class, 'truck_id', 'id');
     }
+
+    public function getRouteKeyName(){
+        return "slug";
+    }
 }

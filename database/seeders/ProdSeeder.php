@@ -330,26 +330,31 @@ class ProdSeeder extends Seeder
         //фура
         Truck::create(array(
             'name' => 'Фура',
+            'slug' => 'fura',
             'img_id' => 5
         ));
         //Автопоезд
         Truck::create(array(
             'name' => 'Автопоезд',
+            'slug' => 'avtopoezd',
             'img_id' => 6
         ));
         //Одиночка
         Truck::create(array(
             'name' => 'Одиночка',
+            'slug' => 'odinochka',
             'img_id' => 7
         ));
         //Газель
         Truck::create(array(
             'name' => 'Газель',
+            'slug' => 'gazel',
             'img_id' => 8
         ));
         //Трал
         Truck::create(array(
             'name' => 'Трал',
+            'slug' => 'tral',
             'img_id' => 9
         ));
 
