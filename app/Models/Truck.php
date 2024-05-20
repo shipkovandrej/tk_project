@@ -9,15 +9,18 @@ class Truck extends Model
 {
     use HasFactory;
 
-    public function types(){
+    public function types()
+    {
         return $this->belongsToMany(Type::class, 'truck_types', 'truck_id', 'type_id')->withTimestamps();
     }
 
-    public function methods(){
+    public function methods()
+    {
         return $this->belongsToMany(Method::class, 'method_trucks', 'truck_id', 'method_id')->withTimestamps();
     }
 
-    public function questions(){
+    public function questions()
+    {
         return $this->belongsToMany(Question::class, 'question_trucks', 'truck_id', 'question_id')->withTimestamps();
     }
 
@@ -26,12 +29,18 @@ class Truck extends Model
         return $this->hasOne(Img::class, 'id', 'img_id');
     }
 
+    public function mini_img()
+    {
+        return $this->hasOne(Img::class, 'id', 'mini_img_id');
+    }
+
     public function specs()
     {
         return $this->hasMany(Spec::class, 'truck_id', 'id');
     }
 
-    public function getRouteKeyName(){
+    public function getRouteKeyName()
+    {
         return "slug";
     }
 }

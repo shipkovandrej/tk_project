@@ -14,7 +14,7 @@ use Illuminate\Support\Str;
 
 class TestController extends Controller
 {
-    public function index(Truck $slug)
+    public function index()
     {
         //$posts = Post::all();
         //return view('post.index', compact('posts'));
@@ -24,8 +24,8 @@ class TestController extends Controller
         //$res = Truck::all();
 //        dd(Str::slug("Трал"));
         //dd($slug);
-        $data = ['string' => 'fura'];
-        return view('test', compact('data'));
+       $truck = Truck::find(1);
+       dd($truck->mini_img);
 
 
     }

@@ -21,6 +21,10 @@ return new class extends Migration
             $table->unsignedBigInteger('img_id');
             $table->index('img_id', 'img_idx2');
             $table->foreign('img_id', 'img_idxf2')->on('imgs')->references('id');
+
+            $table->unsignedBigInteger('mini_img_id');
+            $table->index('mini_img_id', 'img_idx7');
+            $table->foreign('mini_img_id', 'img_idx7')->on('imgs')->references('id');
         });
     }
 

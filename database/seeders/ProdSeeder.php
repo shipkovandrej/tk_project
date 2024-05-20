@@ -61,23 +61,23 @@ class ProdSeeder extends Seeder
         ));
         //фура
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/300x300x0x64083f0f9f8da.jpg'
+            'path' => 'public/cache/goods_category_photos/fura.jpg'
         ));
         //автопоезд
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/300x300x0x64083e2c83cc7.jpg'
+            'path' => 'public/cache/goods_category_photos/avtopoezd.jpg'
         ));
         //одиночка
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/300x300x0x64083e6e9b3d1.jpg'
+            'path' => 'public/cache/goods_category_photos/odinochka.jpg'
         ));
         //газель
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/300x300x0x64083eb0efa8d.jpg'
+            'path' => 'public/cache/goods_category_photos/gazel.jpg'
         ));
         //трал
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/300x300x0x64083d6cf4054.jpg'
+            'path' => 'public/cache/goods_category_photos/tral.jpg'
         ));
 
 
@@ -117,6 +117,27 @@ class ProdSeeder extends Seeder
             'path' => 'public/upload/service_category_photos/63ff3fdf9472a.jpg'
         ));
 
+        //миниверсии картинок
+        //фура
+        Img::create(array(
+            'path' => 'public/cache/goods_category_photos/fura_mini.jpg'
+        ));
+        //автопоезд
+        Img::create(array(
+            'path' => 'public/cache/goods_category_photos/avtopoezd_mini.jpg'
+        ));
+        //одиночка
+        Img::create(array(
+            'path' => 'public/cache/goods_category_photos/odinochka_mini.jpg'
+        ));
+        //газель
+        Img::create(array(
+            'path' => 'public/cache/goods_category_photos/gazel_mini.jpg'
+        ));
+        //трал
+        Img::create(array(
+            'path' => 'public/cache/goods_category_photos/tral_mini.jpg'
+        ));
 
         //статьи
         Article::create(array(
@@ -331,31 +352,36 @@ class ProdSeeder extends Seeder
         Truck::create(array(
             'name' => 'Фура',
             'slug' => 'fura',
-            'img_id' => 5
+            'img_id' => 5,
+            'mini_img_id' => 20,
         ));
         //Автопоезд
         Truck::create(array(
             'name' => 'Автопоезд',
             'slug' => 'avtopoezd',
-            'img_id' => 6
+            'img_id' => 6,
+            'mini_img_id' => 21,
         ));
         //Одиночка
         Truck::create(array(
             'name' => 'Одиночка',
             'slug' => 'odinochka',
-            'img_id' => 7
+            'img_id' => 7,
+            'mini_img_id' => 22,
         ));
         //Газель
         Truck::create(array(
             'name' => 'Газель',
             'slug' => 'gazel',
-            'img_id' => 8
+            'img_id' => 8,
+            'mini_img_id' => 23,
         ));
         //Трал
         Truck::create(array(
             'name' => 'Трал',
             'slug' => 'tral',
-            'img_id' => 9
+            'img_id' => 9,
+            'mini_img_id' => 24,
         ));
 
 
