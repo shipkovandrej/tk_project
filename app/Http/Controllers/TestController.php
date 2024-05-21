@@ -24,8 +24,10 @@ class TestController extends Controller
         //$res = Truck::all();
 //        dd(Str::slug("Трал"));
         //dd($slug);
-       $truck = Truck::find(1);
-       dd($truck->mini_img);
+       //$truck = Truck::find(1);
+       //dd($truck->mini_img);
+        $res = rtrim(rtrim("3.00", "0"),".");
+        dd($res);
 
 
     }

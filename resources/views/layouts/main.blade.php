@@ -321,7 +321,7 @@
 </div>
 <script src="{{ asset('js/bottom.js') }}"></script>
 
-<a href="javascript:void(0)" onclick="ToUp()" class="toup"><img src="images/up.png"/></a>
+<a href="javascript:void(0)" onclick="ToUp()" class="toup"><img src="/images/up.png"/></a>
 
 </body>
 </html>

@@ -325,18 +325,19 @@
     <div class="widgetblock widgetblock-goodlist">
         <div class="container">
             <ul class="goodsflow">
+                @foreach($specs as $spec)
                 <li>
                     <div class="good_wrapper">
-                        <div class="i_c"><img alt="Еврофура (объем - 100 м3)"
-                                              src="../cache/goods_photos/fura.jpg"></div>
+                        <div class="i_c"><img alt="{{ $spec->name }}"
+                                              src="{{ $spec_img }}"></div>
                         <div class="i_content">
-                            <div class="p-ttl">Еврофура (объем - 100 м3)</div>
+                            <div class="p-ttl">{{ $spec->name }}</div>
                             <div class="p-ttl-minidesc">
                                 <ul>
-                                    <li>Длина - 13.4 м</li>
-                                    <li>Ширина - 2.45 м</li>
-                                    <li>Высота - 3&nbsp;м</li>
-                                    <li>Объем - 100 м3</li>
+                                    <li>Длина - {{ rtrim(rtrim($spec->parameter->length,"0"),".") }} м</li>
+                                    <li>Ширина - {{ rtrim(rtrim($spec->parameter->width,"0"),".") }} м</li>
+                                    <li>Высота - {{ rtrim(rtrim($spec->parameter->height,"0"),".") }} м</li>
+                                    <li>Объем - {{intval($spec->parameter->volume)}} м3</li>
                                     <li>Паллето-мест - 33 шт</li>
                                 </ul>
                             </div>
@@ -345,46 +346,8 @@
                             заявку</a>
                     </div>
                 </li>
-                <li>
-                    <div class="good_wrapper">
-                        <div class="i_c"><img alt="Еврофура (объем - 82 м3)"
-                                              src="../cache/goods_photos/fura.jpg"></div>
-                        <div class="i_content">
-                            <div class="p-ttl">Еврофура (объем - 82 м3)</div>
-                            <div class="p-ttl-minidesc">
-                                <ul>
-                                    <li>Длина - 13.4&nbsp;м</li>
-                                    <li>Ширина - 2.45 м</li>
-                                    <li>Высота - 2.45 м</li>
-                                    <li>Объем -&nbsp;82 м3</li>
-                                    <li>Паллето-мест - 33 шт</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="../module/callback/form/index.html@good=1" class="service_callback" rel="fancybox">Оставить
-                            заявку</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="good_wrapper">
-                        <div class="i_c"><img alt="Еврофура (объем - 92 м3)"
-                                              src="/cache/goods_photos/fura.jpg"></div>
-                        <div class="i_content">
-                            <div class="p-ttl">Еврофура (объем - 92 м3)</div>
-                            <div class="p-ttl-minidesc">
-                                <ul>
-                                    <li>Длина - 13.4 м</li>
-                                    <li>Ширина - 2.45 м</li>
-                                    <li>Высота - 2.8&nbsp;м</li>
-                                    <li>Объем - 92 м3</li>
-                                    <li>Паллето-мест - 33 шт</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="../module/callback/form/index.html@good=2" class="service_callback" rel="fancybox">Оставить
-                            заявку</a>
-                    </div>
-                </li>
+                @endforeach
+
             </ul>
         </div>
     </div>

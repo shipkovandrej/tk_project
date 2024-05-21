@@ -77,11 +77,11 @@ class CarController extends Controller
         $types = $truck->types;
 
         $questions = $truck->questions;
-
-        dd($spec_img);
+        $res = $specs[2]->parameter->height;
+        //dd(rtrim(rtrim($res,"0"),"."));
 
         return view('avtopark.car', compact('volumes', 'lengths', 'widths', 'heights',
-            'payloads', 'types', 'questions', 'img', 'spec_img'));
+            'payloads', 'types', 'questions', 'img', 'spec_img', 'specs'));
 
 
     }
