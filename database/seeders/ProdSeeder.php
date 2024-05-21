@@ -48,95 +48,117 @@ class ProdSeeder extends Seeder
         //пикчи
         //полезная информация
         Img::create(array(
-            'path' => 'public/cache/events_photos/600x600x0x63f8b33b6dacb.jpg',
+            'path' => '/cache/events_photos/600x600x0x63f8b33b6dacb.jpg',
         ));
         Img::create(array(
-            'path' => 'public/cache/events_photos/600x600x0x63f8b39086d66.jpg',
+            'path' => '/cache/events_photos/600x600x0x63f8b39086d66.jpg',
         ));
         Img::create(array(
-            'path' => 'public/cache/events_photos/600x600x0x63f8b3e2ae50e.jpg',
+            'path' => '/cache/events_photos/600x600x0x63f8b3e2ae50e.jpg',
         ));
         Img::create(array(
-            'path' => 'public/cache/events_photos/600x600x0x63f8b3bddbeb8.jpg',
+            'path' => '/cache/events_photos/600x600x0x63f8b3bddbeb8.jpg',
         ));
         //фура
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/fura.jpg'
+            'path' => '/upload/goods_category_photos/fura.png'
         ));
         //автопоезд
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/avtopoezd.jpg'
+            'path' => '/upload/goods_category_photos/avtopoezd.png'
         ));
         //одиночка
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/odinochka.jpg'
+            'path' => '/upload/goods_category_photos/odinochka.png'
         ));
         //газель
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/gazel.jpg'
+            'path' => '/upload/goods_category_photos/gazel.png'
         ));
         //трал
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/tral.jpg'
+            'path' => '/upload/goods_category_photos/tral.png'
         ));
 
 
         //опасные грузы
         Img::create(array(
-            'path' => 'public/cache/service_category_photos/500x300x0x63f8bd87002f3.jpg'
+            'path' => '/cache/service_category_photos/500x300x0x63f8bd87002f3.jpg'
         ));
         Img::create(array(
-            'path' => 'public/upload/service_category_photos/63f8bc485abc1.jpg'
+            'path' => '/upload/service_category_photos/63f8bc485abc1.jpg'
         ));
         // скоропортящиеся
         Img::create(array(
-            'path' => 'public/cache/service_category_photos/500x300x0x63fc97e18d3bb.jpg'
+            'path' => '/cache/service_category_photos/500x300x0x63fc97e18d3bb.jpg'
         ));
         Img::create(array(
-            'path' => 'public/upload/service_category_photos/63ff397a23551.jpg'
+            'path' => '/upload/service_category_photos/63ff397a23551.jpg'
         ));
         // фармацевтические
         Img::create(array(
-            'path' => 'public/cache/service_category_photos/500x300x0x63fc9a7fe0d13.jpg'
+            'path' => '/cache/service_category_photos/500x300x0x63fc9a7fe0d13.jpg'
         ));
         Img::create(array(
-            'path' => 'public/upload/service_category_photos/63ff3b79f1c4d.jpg'
+            'path' => '/upload/service_category_photos/63ff3b79f1c4d.jpg'
         ));
         // крупногабаритные
         Img::create(array(
-            'path' => 'public/cache/service_category_photos/500x300x0x63fc9bbaefdd6.jpg'
+            'path' => '/cache/service_category_photos/500x300x0x63fc9bbaefdd6.jpg'
         ));
         Img::create(array(
-            'path' => 'public/upload/service_category_photos/63ff3ece7580f.jpg'
+            'path' => '/upload/service_category_photos/63ff3ece7580f.jpg'
         ));
         // сборные
         Img::create(array(
-            'path' => 'public/cache/service_category_photos/500x300x0x63fc9fd4117f2.jpg'
+            'path' => '/cache/service_category_photos/500x300x0x63fc9fd4117f2.jpg'
         ));
         Img::create(array(
-            'path' => 'public/upload/service_category_photos/63ff3fdf9472a.jpg'
+            'path' => '/upload/service_category_photos/63ff3fdf9472a.jpg'
         ));
 
         //миниверсии картинок
         //фура
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/fura_mini.jpg'
+            'path' => '/cache/goods_category_photos/fura_mini.jpg'
         ));
         //автопоезд
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/avtopoezd_mini.jpg'
+            'path' => '/cache/goods_category_photos/avtopoezd_mini.jpg'
         ));
         //одиночка
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/odinochka_mini.jpg'
+            'path' => '/cache/goods_category_photos/odinochka_mini.jpg'
         ));
         //газель
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/gazel_mini.jpg'
+            'path' => '/cache/goods_category_photos/gazel_mini.jpg'
         ));
         //трал
         Img::create(array(
-            'path' => 'public/cache/goods_category_photos/tral_mini.jpg'
+            'path' => '/cache/goods_category_photos/tral_mini.jpg'
+        ));
+
+        //spec пикчи
+        //фура
+        Img::create(array(
+            'path' => '/cache/goods_photos/fura.jpg'
+        ));
+        //автопоезд
+        Img::create(array(
+            'path' => '/cache/goods_photos/avtopoezd.jpg'
+        ));
+        //одиночка
+        Img::create(array(
+            'path' => '/cache/goods_photos/odinochka.jpg'
+        ));
+        //газель
+        Img::create(array(
+            'path' => '/cache/goods_photos/gazel.jpg'
+        ));
+        //трал
+        Img::create(array(
+            'path' => '/cache/goods_photos/tral.jpg'
         ));
 
         //статьи
@@ -347,13 +369,13 @@ class ProdSeeder extends Seeder
         ));
 
         //виды машин
-
         //фура
         Truck::create(array(
             'name' => 'Фура',
             'slug' => 'fura',
             'img_id' => 5,
             'mini_img_id' => 20,
+            'spec_img_id' => 25,
         ));
         //Автопоезд
         Truck::create(array(
@@ -361,6 +383,7 @@ class ProdSeeder extends Seeder
             'slug' => 'avtopoezd',
             'img_id' => 6,
             'mini_img_id' => 21,
+            'spec_img_id' => 26,
         ));
         //Одиночка
         Truck::create(array(
@@ -368,6 +391,7 @@ class ProdSeeder extends Seeder
             'slug' => 'odinochka',
             'img_id' => 7,
             'mini_img_id' => 22,
+            'spec_img_id' => 27,
         ));
         //Газель
         Truck::create(array(
@@ -375,6 +399,7 @@ class ProdSeeder extends Seeder
             'slug' => 'gazel',
             'img_id' => 8,
             'mini_img_id' => 23,
+            'spec_img_id' => 28,
         ));
         //Трал
         Truck::create(array(
@@ -382,6 +407,7 @@ class ProdSeeder extends Seeder
             'slug' => 'tral',
             'img_id' => 9,
             'mini_img_id' => 24,
+            'spec_img_id' => 29,
         ));
 
 

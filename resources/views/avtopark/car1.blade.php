@@ -82,10 +82,8 @@
             </div>
         </div>
         <div class="car_slider_bg">
-            <picture>
-                <source media="(min-width: 768px)"
-                        srcset="https://www.tk-go.ru/upload/goods_category_photos/63f8c97730467.png">
-                <img src="../upload/goods_category_photos/63f8c9f166b8d.png"></picture>
+
+                <img src="/upload/goods_category_photos/fura.png">
             <div class="widgetblock-advantages_category_2 widgetblock features advantages">
                 <div class="container"><h2 class="wtitle">Преимущества перевозки грузов еврофурой</h2>
                     <div class="widget-text">Еврофуры - это транспортные средства, которые специально разработаны для

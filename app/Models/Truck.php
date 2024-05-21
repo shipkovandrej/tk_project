@@ -34,6 +34,11 @@ class Truck extends Model
         return $this->hasOne(Img::class, 'id', 'mini_img_id');
     }
 
+    public function spec_img()
+    {
+        return $this->hasOne(Img::class, 'id', 'spec_img_id');
+    }
+
     public function specs()
     {
         return $this->hasMany(Spec::class, 'truck_id', 'id');
