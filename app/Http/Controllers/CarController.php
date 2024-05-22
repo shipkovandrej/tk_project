@@ -49,6 +49,7 @@ class CarController extends Controller
         }
 
         //dd(min($volumes));
+        /*
         $volumes = [
             'min' => min($volumes),
             'max' => max($volumes),
@@ -73,15 +74,18 @@ class CarController extends Controller
             'min' => min($payloads),
             'max' => max($payloads),
         ];
-
+        */
         $types = $truck->types;
 
         $questions = $truck->questions;
-        $res = $specs[2]->parameter->height;
-        //dd(rtrim(rtrim($res,"0"),"."));
-
+        //$res = $specs[2]->parameter->height;
+        //dd(data_avg($payloads));
+        //$truck->specs[0]->parameter->volume
+        if(empty($volumes)){
+            dd($volumes);
+        }
         return view('avtopark.car', compact('volumes', 'lengths', 'widths', 'heights',
-            'payloads', 'types', 'questions', 'img', 'spec_img', 'specs'));
+            'payloads', 'types', 'questions', 'img', 'spec_img', 'specs', 'truck'));
 
 
     }

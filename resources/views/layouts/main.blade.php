@@ -81,11 +81,11 @@
                         <li class="dropdown ">
                             <a href="{{ route('avtopark') }}" class="dropdown-toggle">Наш автопарк</a>
                             <ul class="">
-                                <li><a href="{{ route('car1') }}">Фура</a></li>
-                                <li><a href="{{ route('car2') }}">Автопоезд</a></li>
-                                <li><a href="{{ route('car3') }}">Одиночка</a></li>
-                                <li><a href="{{ route('car4') }}">Газель</a></li>
-                                <li><a href="{{ route('car5') }}">Трал</a></li>
+                                <li><a href="{{ route('car', ['slug' => 'fura']) }}">Фура</a></li>
+                                <li><a href="{{ route('car', ['slug' => 'avtopoezd']) }}">Автопоезд</a></li>
+                                <li><a href="{{ route('car', ['slug' => 'odinochka']) }}">Одиночка</a></li>
+                                <li><a href="{{ route('car', ['slug' => 'gazel']) }}">Газель</a></li>
+                                <li><a href="{{ route('car', ['slug' => 'tral']) }}">Трал</a></li>
                             </ul>
                         </li>
                         <li class="dropdown ">
@@ -146,11 +146,11 @@
                     <li class="dropdown ">
                         <a href="{{ route('avtopark') }}" class="dropdown-toggle">Наш автопарк</a>
                         <ul class="">
-                            <li><a href="{{ route('car1') }}">Фура</a></li>
-                            <li><a href="{{ route('car2') }}">Автопоезд</a></li>
-                            <li><a href="{{ route('car3') }}">Одиночка</a></li>
-                            <li><a href="{{ route('car4') }}">Газель</a></li>
-                            <li><a href="{{ route('car5') }}">Трал</a></li>
+                            <li><a href="{{ route('car', ['slug' => 'fura']) }}">Фура</a></li>
+                            <li><a href="{{ route('car', ['slug' => 'avtopoezd']) }}">Автопоезд</a></li>
+                            <li><a href="{{ route('car', ['slug' => 'odinochka']) }}">Одиночка</a></li>
+                            <li><a href="{{ route('car', ['slug' => 'gazel']) }}">Газель</a></li>
+                            <li><a href="{{ route('car', ['slug' => 'tral']) }}">Трал</a></li>
                         </ul>
                     </li>
                     <li class="dropdown ">
@@ -264,11 +264,11 @@
                 <div class="title bold">Наш автопарк</div>
 
                 <ul class="popularcatsfooter menu_footer">
-                    <li><a href="{{ route('car1') }}">Фура</a></li>
-                    <li><a href="{{ route('car2') }}">Автопоезд</a></li>
-                    <li><a href="{{ route('car3') }}">Одиночка</a></li>
-                    <li><a href="{{ route('car4') }}">Газель</a></li>
-                    <li><a href="{{ route('car5') }}">Трал</a></li>
+                    <li><a href="{{ route('car', ['slug' => 'fura']) }}">Фура</a></li>
+                    <li><a href="{{ route('car', ['slug' => 'avtopoezd']) }}">Автопоезд</a></li>
+                    <li><a href="{{ route('car', ['slug' => 'odinochka']) }}">Одиночка</a></li>
+                    <li><a href="{{ route('car', ['slug' => 'gazel']) }}">Газель</a></li>
+                    <li><a href="{{ route('car', ['slug' => 'tral']) }}">Трал</a></li>
                 </ul>
 
             </div>

@@ -21,41 +21,15 @@
 
     <div class="container">
         <ul class="categories">
+            @foreach($trucks as $truck)
             <li>
                 <div class="item">
-                    <div class="imagecontainer"><a href="{{ route('car1') }}" title="Фура"><img
-                                src="../cache/goods_category_photos/fura_mini.jpg"></a></div>
-                    <div class="p-ttl">Фура</div>
+                    <div class="imagecontainer"><a href="{{ route('car', ['slug' => $truck->slug]) }}" title="{{ $truck->name }}"><img
+                                src="{{ $truck->mini_img->path }}"></a></div>
+                    <div class="p-ttl">{{ $truck->name }}</div>
                 </div>
             </li>
-            <li>
-                <div class="item">
-                    <div class="imagecontainer"><a href="{{ route('car2') }}" title="Автопоезд"><img
-                                src="../cache/goods_category_photos/avtopoezd_mini.jpg"></a></div>
-                    <div class="p-ttl">Автопоезд</div>
-                </div>
-            </li>
-            <li>
-                <div class="item">
-                    <div class="imagecontainer"><a href="{{ route('car3') }}" title="Одиночка"><img
-                                src="../cache/goods_category_photos/odinochka_mini.jpg"></a></div>
-                    <div class="p-ttl">Одиночка</div>
-                </div>
-            </li>
-            <li>
-                <div class="item">
-                    <div class="imagecontainer"><a href="{{ route('car4') }}" title="Газель"><img
-                                src="../cache/goods_category_photos/gazel_mini.jpg"></a></div>
-                    <div class="p-ttl">Газель</div>
-                </div>
-            </li>
-            <li>
-                <div class="item">
-                    <div class="imagecontainer"><a href="{{ route('car5') }}" title="Трал"><img
-                                src="../cache/goods_category_photos/tral_mini.jpg"></a></div>
-                    <div class="p-ttl">Трал</div>
-                </div>
-            </li>
+            @endforeach
 
         </ul>
     </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AvtoparkController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
@@ -30,14 +31,16 @@ Route::view('/perevozka-sbornyh-gruzov', 'cargos.cargo5')->name('cargo5');
 
 
 //avtopark pages
-Route::view('/avtopark', 'avtopark')->name('avtopark');
-
+Route::get('/avtopark', [AvtoparkController::class, 'index'])->name('avtopark');
+Route::get('/avtopark/{slug}', [CarController::class, 'index'])->name('car');
+/*
 Route::view('/avtopark1/fura', 'avtopark.car1')->name('car1');
 Route::view('/avtopark1/avtopoezd', 'avtopark.car2')->name('car2');
 Route::view('/avtopark1/odinochka', 'avtopark.car3')->name('car3');
 Route::view('/avtopark1/gazel', 'avtopark.car4')->name('car4');
 Route::view('/avtopark1/tral', 'avtopark.car5')->name('car5');
-
+*/
 //test page
 Route::get('/test', [TestController::class, 'index'])->name('test');
-Route::get('/avtopark/{slug}', [CarController::class, 'index'])->name('car');
+
+

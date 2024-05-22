@@ -1,14 +1,8 @@
 @extends('layouts.main')
 @section('title')
-    <title>Фура</title>
+    <title>{{ $truck->name }}</title>
 @stop
-<!--
-{{$volumes['min']." - ".$volumes['max']}}<br>
-{{$lengths['min']." - ".$lengths['max']}}<br>
-{{$widths['min']." - ".$widths['max']}}<br>
-{{$heights['min']." - ".$heights['max']}}<br>
-{{$payloads['min']." - ".$payloads['max']}}<br>
--->
+
 @section('content')
     <div class="crumble_wrapper">
         <div class="container">
@@ -24,11 +18,11 @@
                         <span>Автопарк</span>
                     </a> /
                 </li>
-                <li>Фура</li>
+                <li>{{ $truck->name }}</li>
             </ul>
         </div>
     </div>
-    <div class="container h1"><h1>Фура</h1></div>
+    <div class="container h1"><h1>{{ $truck->name }}</h1></div>
 
 
     <div class="car_slider">
@@ -51,10 +45,12 @@
                                 <p><strong>Объем</strong></p>
 
                                 <ul>
-                                    <li>{{ $volumes['min'] }}-{{ $volumes['max'] }} куб. метров</li>
-                                    <li>Длина &ndash; {{ $lengths['min'] }}-{{ $lengths['max'] }} м</li>
-                                    <li>Ширина &ndash; {{ $widths['min'] }}-{{ $widths['max'] }} м</li>
-                                    <li>Высота &ndash; {{ $heights['min'] }}-{{ $heights['max'] }} м</li>
+                                    @if(!empty(data_avg($volumes)))
+                                        <li>{{ data_avg($volumes) }} куб. метров</li>
+                                    @endif
+                                    <li>Длина &ndash; {{ data_avg($lengths) }} м</li>
+                                    <li>Ширина &ndash; {{ data_avg($widths) }} м</li>
+                                    <li>Высота &ndash; {{ data_avg($heights) }} м</li>
                                 </ul>
                             </div>
                         </div>
@@ -64,7 +60,7 @@
                                 <p><strong>Грузоподъемность</strong></p>
 
                                 <ul>
-                                    <li>{{ $payloads['min'] }}-{{ $payloads['max'] }} тонны</li>
+                                    <li>{{ data_avg($payloads) }} тонны</li>
                                 </ul>
                             </div>
 
@@ -337,8 +333,13 @@
                                     <li>Длина - {{ rtrim(rtrim($spec->parameter->length,"0"),".") }} м</li>
                                     <li>Ширина - {{ rtrim(rtrim($spec->parameter->width,"0"),".") }} м</li>
                                     <li>Высота - {{ rtrim(rtrim($spec->parameter->height,"0"),".") }} м</li>
-                                    <li>Объем - {{intval($spec->parameter->volume)}} м3</li>
-                                    <li>Паллето-мест - 33 шт</li>
+                                    @if(!empty(data_avg($volumes)))
+                                        <li>Объем - {{intval($spec->parameter->volume)}} м3</li>
+                                    @endif
+                                    @if(!empty($spec->parameter->psp))
+                                        <li>Паллето-мест - {{ $spec->parameter->psp }} шт</li>
+                                    @endif
+
                                 </ul>
                             </div>
                         </div>
