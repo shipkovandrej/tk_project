@@ -9,7 +9,7 @@
         <div class="container">
             <ul class="crumble ul">
                 <li>
-                    <a href="../index.html" title="Главная">
+                    <a href="{{ route('index') }}" title="Главная">
                         <span>Главная</span>
                     </a> /
                 </li>
@@ -22,78 +22,25 @@
 
     <div class="container">
         <ul class="servicelist">
-            <li>
-                <div class="service_item" onclick="location.href='https://www.tk-go.ru/perevozka-opasnyh-gruzov/'">
-                    <div class="img"><a class="goto" title="Перевозка опасных грузов"
-                                        href="{{ route('cargo1') }}"><img
-                                src="../cache/service_category_photos/500x300x0x63f8bd87002f3.jpg"
-                                alt="Перевозка опасных грузов"></a></div>
-                    <span class="counter">01</span>
-                    <div class="title"><img src="../upload/service_category_photos/63f8b7983ef3c.png"> <span>Перевозка опасных грузов</span>
+
+            @foreach($cargos as $cargo)
+                <li>
+                    <div class="service_item"
+                         onclick="location.href='{{ route('cargo', ['slug' => $cargo->slug]) }}'">
+                        <div class="img"><a class="goto" title="{{ $cargo->name }}"
+                                            href="{{ route('cargo', ['slug' => $cargo->slug]) }}"><img
+                                    src="{{ $cargo->mini_img->path }}"
+                                    alt="{{ $cargo->name }}"></a></div>
+                        <span class="counter">{{ $loop->index + 1 }}</span>
+                        <div class="title"><img src="{{ $cargo->logo_img->path }}"> <span>{{ $cargo->name }}</span>
+                        </div>
+                        <div class="desc">
+                            {{ card_cutter($cargo->card) }}
+                        </div>
                     </div>
-                    <div class="desc">Компания «Грузовое объединение» более 13 лет специализируется на перевозке опасных
-                        грузов. Наш автопарк...
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="service_item"
-                     onclick="location.href='https://www.tk-go.ru/perevozka-skoroportyaschihsya-gruzov/'">
-                    <div class="img"><a class="goto" title="Перевозка скоропортящихся грузов"
-                                        href="{{ route('cargo2') }}"><img
-                                src="../cache/service_category_photos/500x300x0x63fc97e18d3bb.jpg"
-                                alt="Перевозка скоропортящихся грузов"></a></div>
-                    <span class="counter">02</span>
-                    <div class="title"><img src="../upload/service_category_photos/63fc96cf0fa6f.png"> <span>Перевозка скоропортящихся грузов</span>
-                    </div>
-                    <div class="desc">Своевременная и безопасная доставка скоропортящегося груза имеет очень важное
-                        значение, поэтому мы предлагаем...
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="service_item"
-                     onclick="location.href='https://www.tk-go.ru/perevozka-farmacevticheskih-tovarov/'">
-                    <div class="img"><a class="goto" title="Перевозка фармацевтических товаров"
-                                        href="{{ route('cargo3') }}"><img
-                                src="../cache/service_category_photos/500x300x0x63fc9a7fe0d13.jpg"
-                                alt="Перевозка фармацевтических товаров"></a></div>
-                    <span class="counter">03</span>
-                    <div class="title"><img src="../upload/service_category_photos/63fc9ae587ac6.png"> <span>Перевозка фармацевтических товаров</span>
-                    </div>
-                    <div class="desc">Компания «Грузовое объединение» специализируется на перевозке фармацевтических
-                        товаров...
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="service_item" onclick="location.href='https://www.tk-go.ru/perevozka-krupnogabaritnyh-gruzov/'">
-                    <div class="img"><a class="goto" title="Перевозка крупногабаритных грузов"
-                                        href="{{ route('cargo4') }}"><img
-                                src="../cache/service_category_photos/500x300x0x63fc9bbaefdd6.jpg"
-                                alt="Перевозка крупногабаритных грузов"></a></div>
-                    <span class="counter">04</span>
-                    <div class="title"><img src="../upload/service_category_photos/63fc9d52bbf52.png"> <span>Перевозка крупногабаритных грузов</span>
-                    </div>
-                    <div class="desc">Компания «Грузовое объединение» имеет многолетний опыт в сфере автоперевозок
-                        крупногабаритных грузов...
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="service_item" onclick="location.href='https://www.tk-go.ru/perevozka-sbornyh-gruzov/'">
-                    <div class="img"><a class="goto" title="Перевозка сборных грузов "
-                                        href="{{ route('cargo5') }}"><img
-                                src="../cache/service_category_photos/500x300x0x63fc9fd4117f2.jpg"
-                                alt="Перевозка сборных грузов "></a></div>
-                    <span class="counter">05</span>
-                    <div class="title"><img src="../upload/service_category_photos/63fc9fdc513e9.png"> <span>Перевозка сборных грузов </span>
-                    </div>
-                    <div class="desc">Компания «Грузовое объединение» предлагает широкий спектр услуг по организации
-                        перевозок сборных любых...
-                    </div>
-                </div>
-            </li>
+                </li>
+            @endforeach
+
         </ul>
     </div>
 

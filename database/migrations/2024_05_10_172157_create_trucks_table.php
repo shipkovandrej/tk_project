@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name', 255)->unique();
             $table->string('slug', 255)->unique();
+            $table->text('pre_text_1');
+            $table->text('pre_text_2');
             $table->timestamps();
             $table->softDeletes();
 

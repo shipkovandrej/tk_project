@@ -9,7 +9,7 @@
     <div class="container">
         <ul class="crumble ul">
             <li>
-                <a href="../index.html" title="Главная">
+                <a href="{{ route('index') }}" title="Главная">
                     <span>Главная</span>
                 </a> /
             </li>

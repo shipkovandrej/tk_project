@@ -8,7 +8,7 @@
         <div class="container">
             <ul class="crumble ul">
                 <li>
-                    <a href="../index.html" title="Главная">
+                    <a href="{{ route('index') }}" title="Главная">
                         <span>Главная</span>
                     </a> /
                 </li>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="price_call">
-                    <div class="price">от 50 руб/км</div>
+                    <div class="price">от ? руб/км</div>
                     <a href="../module/callback/form/index.html@category=2" class="service_callback" rel="facebox">Оставить
                         заявку</a>
                 </div>
@@ -85,14 +85,9 @@
 
             <img src="{{$img}}">
             <div class="widgetblock-advantages_category_2 widgetblock features advantages">
-                <div class="container"><h2 class="wtitle">Преимущества перевозки грузов еврофурой</h2>
-                    <div class="widget-text">Еврофуры - это транспортные средства, которые специально разработаны для
-                        перевозки грузов на большие расстояния. Грузоперевозки еврофурами из Ростова-на-Дону имеют ряд
-                        преимуществ по сравнению с другими типами грузовиков, а именно большую грузоподъемность и большие
-                        габариты, что позволяет перевозить за один раз груз весом до 24 тонн. Благодаря таким параметрам,
-                        еврофура является одним из самых удобных и востребованных видов транспорта для перевозки
-                        крупногабаритных грузов, а также сыпучих, плотных и жидких материалов.
-
+                <div class="container"><h2 class="wtitle">{{ $truck->name." - Главные преимущества" }}</h2>
+                    <div class="widget-text">
+                        {!! $truck->pre_text_1 !!}
                     </div>
                     <div class="horscroll">
                         <div class="scrol-params" data-thumb="" data-auto="" data-count="4" data-pagination=""
@@ -107,10 +102,10 @@
                                                     <div class="digi">1</div>
                                                 </td>
                                                 <td>
-                                                    <div class="name">Большой объем</div>
-                                                    <div class="description"><p>Еврофуры могут перевозить до 33 палет внутри
-                                                            своего кузова, что позволяет транспортировать большой объем товаров
-                                                            и материалов за одну поездку.</p>
+                                                    <div class="name">Безопасность груза</div>
+                                                    <div class="description"><p>Огромный опыт позволяет нам обеспечить
+                                                            безопасную
+                                                            перевозку грузов</p>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -127,11 +122,10 @@
                                                     <div class="digi">2</div>
                                                 </td>
                                                 <td>
-                                                    <div class="name">Безопасная перевозка</div>
-                                                    <div class="description"><p>Еврофуры имеют системы безопасности,
-                                                            включающие&nbsp;в себя устройства, фиксирующие&nbsp;груз внутри
-                                                            кузова и предотвращающие&nbsp;его перемещение во время
-                                                            транспортировки.</p>
+                                                    <div class="name">Работаем по правилам</div>
+                                                    <div class="description"><p>Мы следуем всем необходимым&nbsp;правилам и
+                                                            нормам
+                                                            для перевозки грузов</p>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -148,10 +142,9 @@
                                                     <div class="digi">3</div>
                                                 </td>
                                                 <td>
-                                                    <div class="name">МОБИЛЬНОСТЬ</div>
-                                                    <div class="description"><p>Крупные габариты Еврофуры не затрудняют ее
-                                                            перемещение по загруженным дорогам городов, населенных пунктов и
-                                                            трассах.</p>
+                                                    <div class="name">Ответственный подход</div>
+                                                    <div class="description"><p>Мы берем на себя ответственность за каждый этап
+                                                            перевозки груза перед отправителем</p>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -168,10 +161,9 @@
                                                     <div class="digi">4</div>
                                                 </td>
                                                 <td>
-                                                    <div class="name">Использование пространства</div>
-                                                    <div class="description"><p>Грузовые отсеки еврофуры с высотой до 2,7
-                                                            метра позволяет использовать все доступное пространство и сокращает
-                                                            количество пространства внутри кузова.&nbsp;</p>
+                                                    <div class="name">Доставка в срок</div>
+                                                    <div class="description"><p>Гарантируем быструю и эффективную доставку
+                                                            грузов по месту назначения</p>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -189,17 +181,20 @@
 
     <div class="widgetblock-faq_category_2 widgetblock faq">
         <div class="container"><h2 class="wtitle">Часто задаваемые вопросы о перевозке фурой</h2>
-            <div class="widget-text">Если вам требуется заказать перевозку грузов фурой из Ростова-на-Дону, обратитесь в
-                нашу компанию «Грузовое объединение». Мы предложим вам наилучшие условия и гарантируем высокий уровень
-                сервиса.
+            <div class="widget-text">
+                 {!! $truck->pre_text_2 !!}
             </div>
             <ul class="faqlist">
                 @foreach($questions as $question)
                     <li>
                         <div class="">
                             <div class="question_wrapper">
-                                <div class="question">{{ $loop->index + 1 }}. {{ $question->name }}</div>
-                                <div class="answer">{{ $question->answer }}</div>
+                                <div class="question">
+                                    {{ $loop->index + 1 }}. {{ $question->name }}
+                                </div>
+                                <div class="answer">
+                                    {{ $question->answer }}
+                                </div>
                             </div>
                         </div>
                     </li>

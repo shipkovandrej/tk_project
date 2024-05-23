@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-    <title>Перевозка опасных грузов</title>
+    <title>{{ $cargo->name }}</title>
 @stop
 
 @section('content')
@@ -8,49 +8,37 @@
         <div class="container">
             <ul class="crumble ul">
                 <li>
-                    <a href="../index.html" title="Главная">
+                    <a href="{{ route('index') }}" title="Главная">
                         <span>Главная</span>
                     </a> /
                 </li>
 
                 <li>
-                    <a href="{{ route('cargos') }}" title="Что мы перевозим">
+                    <a href="{{ route('cargos') }}" title="{{ $cargo->name }}">
                         <span>Что мы перевозим</span>
                     </a> /
                 </li>
-                <li>Перевозка опасных грузов</li>
+                <li>{{ $cargo->name }}</li>
             </ul>
         </div>
     </div>
-    <div class="container h1"><h1>Перевозка опасных грузов</h1></div>
+    <div class="container h1"><h1>{{ $cargo->name }}</h1></div>
 
 
     <div class="container-big">
         <div class="service_slider">
 
-                <img src="upload/service_category_photos/perevozka-opasnyh-gruzov.jpg">
+            <img src="{{ $cargo->img->path }}">
             <div class="container">
                 <div class="whiteplate">
                     <div class="text">
-                        <div class="icon"><img src="../upload/service_category_photos/perevozka-opasnyh-gruzov.png"></div>
-                        <div class="text"><p><strong>Компания &laquo;Грузовое объединение&raquo;</strong>&nbsp;более 13
-                                лет
-                                специализируется на перевозке опасных грузов. Наш автопарк оснащен специализированными
-                                транспортными средствами, которые соответствуют всем необходимым стандартам и
-                                требованиям. Наши
-                                водители и менеджеры регулярно проходят курсы повышение квалификации по программе ДОПОГ.
-                            </p>
-
-                            <p>Мы предлагаем нашим клиентам индивидуальный подход и готовы предоставить консультации по
-                                всем
-                                вопросам, связанным с перевозкой опасных грузов.</p>
-
-                            <p>С нами Вы можете быть уверены в том, что Ваш груз будет доставлен в целости и
-                                сохранности!</p>
+                        <div class="icon"><img src="{{ $cargo->logo_img->path }}"></div>
+                        <div class="text">
+                            {!! $cargo->card !!}
                         </div>
                     </div>
                     <div class="price_call">
-                        <div class="price">от 50 руб./км.</div>
+                        <div class="price">от {{ rtrim(rtrim($cargo->price,"0"),".") }} руб./км.</div>
                         <a href="../module/callback/form/index.html@service=1" class="service_callback" rel="facebox">Оставить
                             заявку</a>
                     </div>
@@ -59,16 +47,10 @@
         </div>
     </div>
     <div class="widgetblock-features_cargo_danger widgetblock features">
-        <div class="container"><h2 class="wtitle">Особенности перевозки опасных грузов</h2>
-            <div class="widget-text"><p>К опасным грузам относят химические вещества, газы, взрывчатые вещества,
-                    радиоактивные материалы, жидкости и твердые вещества, которые могут причинить ущерб жизни, здоровью
-                    людей,
-                    окружающей среде или имуществу при их перевозке. </p>
-
-                <p> Дли перевозки таких грузов нужны специализированные транспортные средства, которые соответствуют
-                    требованиям международных стандартов, таких как ADR, IMDG и IATA. Наши машины оснащены необходимыми
-                    системами защиты от возможных аварий, а также контролем температуры и влажности для сохранности
-                    груза.</p></div>
+        <div class="container"><h2 class="wtitle">Особенности перевозки</h2>
+            <div class="widget-text">
+                {!! $cargo->pre_text_1 !!}
+            </div>
             <div class="horscroll">
                 <div class="scrol-params" data-thumb="" data-auto="" data-count="4" data-pagination=""
                      data-dots=""></div>
@@ -85,7 +67,7 @@
                                             <div class="name">Безопасность груза</div>
                                             <div class="description"><p>Огромный опыт позволяет нам обеспечить
                                                     безопасную
-                                                    перевозку опасных грузов</p>
+                                                    перевозку грузов</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -105,7 +87,7 @@
                                             <div class="name">Работаем по правилам</div>
                                             <div class="description"><p>Мы следуем всем необходимым&nbsp;правилам и
                                                     нормам
-                                                    для перевозки опасных грузов</p>
+                                                    для перевозки грузов</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -143,7 +125,6 @@
                                         <td>
                                             <div class="name">Доставка в срок</div>
                                             <div class="description"><p>Гарантируем быструю и эффективную доставку
-                                                    опасных
                                                     грузов по месту назначения</p>
                                             </div>
                                         </td>
@@ -158,89 +139,26 @@
         </div>
     </div>
     <div class="widgetblock-faq_cargo_danger widgetblock faq">
-        <div class="container"><h2 class="wtitle">Часто задаваемые вопросы о перевозке опасных грузов</h2>
-            <div class="widget-text">Если вам требуется заказать перевозку опасных грузов из Ростова-на-Дону, обратитесь
-                в
-                компанию «Грузовое объединение». Мы оказываем клиентам полный спектр услуг, связанных с перевозкой
-                опасных
-                грузов, включая подготовку необходимых документов и сертификатов, упаковку и маркировку груза. Мы также
-                предоставляем консультационную поддержку и помощь в выборе оптимального варианта перевозки.
+        <div class="container"><h2 class="wtitle">Часто задаваемые вопросы</h2>
+            <div class="widget-text">
+                {!! $cargo->pre_text_2 !!}
             </div>
             <ul class="faqlist">
+                @foreach($questions as $question)
                 <li>
                     <div class="">
                         <div class="question_wrapper">
-                            <div class="question">1. Какие виды грузов относятся к опасным?</div>
-                            <div class="answer">К опасным грузам относят химические вещества, газы, взрывчатые вещества,
-                                радиоактивные материалы, жидкости и твердые вещества, которые могут причинить ущерб
-                                жизни,
-                                здоровью людей, окружающей среде или имуществу при их перевозке. В зависимости от своих
-                                свойств и характеристик, опасные грузы классифицируются на 9 основных классов.
+                            <div class="question">
+                                {{ $loop->index + 1 }}. {{ $question->name }}
+                            </div>
+                            <div class="answer">
+                                {{ $question->answer }}
                             </div>
 
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="">
-                        <div class="question_wrapper">
-                            <div class="question">2. Какие документы нужны для перевозки опасных грузов?</div>
-                            <div class="answer">Для перевозки опасных грузов необходимо наличие ряда документов, таких
-                                как:
-                                декларация опасного груза, сертификат соответствия, паспорт безопасности, план действий
-                                в
-                                случае аварийной ситуации и др.
-                            </div>
-
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="">
-                        <div class="question_wrapper">
-                            <div class="question">3. Каковы требования к упаковке опасных грузов?</div>
-                            <div class="answer">Упаковка опасных грузов должна соответствовать строгим международным
-                                стандартам. Она должна обеспечивать максимальную защиту груза от возможных повреждений и
-                                утечек, а также быть отмечена соответствующими знаками опасности.
-                            </div>
-
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="">
-                        <div class="question_wrapper">
-                            <div class="question">4. Какие меры безопасности необходимо предпринимать при перевозке
-                                опасных
-                                грузов?
-                            </div>
-                            <div class="answer">Перевозка опасных грузов – это ответственное мероприятие, требующее
-                                строгого
-                                соблюдения правил и мер безопасности. В том числе, необходимо следить за температурными
-                                режимами, обеспечивать соответствующую вентиляцию, обеспечить герметичность упаковки и
-                                т.д.
-                            </div>
-
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="">
-                        <div class="question_wrapper">
-                            <div class="question">5. Какие последствия могут быть в случае нарушения правил перевозки
-                                опасных грузов?
-                            </div>
-                            <div class="answer">Нарушение правил перевозки может привести к серьезным последствиям,
-                                таким
-                                как аварии, загрязнение окружающей среды, ущерб здоровью людей и т.д. Кроме того,
-                                нарушение
-                                правил перевозки может привести к штрафам и другим юридическим последствиям, включая
-                                возможную уголовную ответственность.
-                            </div>
-
-                        </div>
-                    </div>
-                </li>
+                @endforeach
             </ul>
             <div class="text_after"></div>
         </div>
@@ -369,65 +287,23 @@
                 положительного.
             </div>
             <ul class="servicelist">
+                @foreach($others as $other)
                 <li>
                     <div class="service_item"
-                         onclick="location.href='https://www.tk-go.ru/perevozka-skoroportyaschihsya-gruzov/'">
-                        <div class="img"><a class="goto" title="Перевозка скоропортящихся грузов"
-                                            href="{{ route('cargo2') }}"><img
-                                    src="cache/service_category_photos/500x300x0x63fc97e18d3bb.jpg"
-                                    alt="Перевозка скоропортящихся грузов"></a></div>
+                         onclick="location.href='{{ route('cargo', ['slug' => $other->slug]) }}'">
+                        <div class="img"><a class="goto" title="{{ $other->name }}"
+                                            href="{{ route('cargo', ['slug' => $other->slug]) }}"><img
+                                    src="{{ $other->mini_img->path }}"
+                                    alt="{{ $other->name }}"></a></div>
                         <span class="counter"></span>
-                        <div class="title"><img src="../upload/service_category_photos/63fc96cf0fa6f.png"> <span>Перевозка скоропортящихся грузов</span>
+                        <div class="title"><img src="{{ $other->logo_img->path }}"> <span>{{ $other->name }}</span>
                         </div>
-                        <div class="desc">Своевременная и безопасная доставка скоропортящегося груза имеет очень важное
-                            значение, поэтому мы предлагаем...
+                        <div class="desc">
+                            {{ card_cutter($other->card) }}
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="service_item"
-                         onclick="location.href='https://www.tk-go.ru/perevozka-farmacevticheskih-tovarov/'">
-                        <div class="img"><a class="goto" title="Перевозка фармацевтических товаров"
-                                            href="{{ route('cargo3') }}"><img
-                                    src="cache/service_category_photos/500x300x0x63fc9a7fe0d13.jpg"
-                                    alt="Перевозка фармацевтических товаров"></a></div>
-                        <span class="counter"></span>
-                        <div class="title"><img src="../upload/service_category_photos/63fc9ae587ac6.png"> <span>Перевозка фармацевтических товаров</span>
-                        </div>
-                        <div class="desc">Компания «Грузовое объединение» специализируется на перевозке фармацевтических
-                            товаров...
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="service_item"
-                         onclick="location.href='https://www.tk-go.ru/perevozka-krupnogabaritnyh-gruzov/'">
-                        <div class="img"><a class="goto" title="Перевозка крупногабаритных грузов"
-                                            href="{{ route('cargo4') }}"><img
-                                    src="cache/service_category_photos/500x300x0x63fc9bbaefdd6.jpg"
-                                    alt="Перевозка крупногабаритных грузов"></a></div>
-                        <span class="counter"></span>
-                        <div class="title"><img src="../upload/service_category_photos/63fc9d52bbf52.png"> <span>Перевозка крупногабаритных грузов</span>
-                        </div>
-                        <div class="desc">Компания «Грузовое объединение» имеет многолетний опыт в сфере автоперевозок
-                            крупногабаритных грузов...
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="service_item" onclick="location.href='https://www.tk-go.ru/perevozka-sbornyh-gruzov/'">
-                        <div class="img"><a class="goto" title="Перевозка сборных грузов "
-                                            href="{{ route('cargo5') }}"><img
-                                    src="cache/service_category_photos/500x300x0x63fc9fd4117f2.jpg"
-                                    alt="Перевозка сборных грузов "></a></div>
-                        <span class="counter"></span>
-                        <div class="title"><img src="../upload/service_category_photos/63fc9fdc513e9.png"> <span>Перевозка сборных грузов </span>
-                        </div>
-                        <div class="desc">Компания «Грузовое объединение» предлагает широкий спектр услуг по организации
-                            перевозок сборных любых...
-                        </div>
-                    </div>
-                </li>
+                @endforeach
             </ul>
             <div class="text_after"></div>
         </div>

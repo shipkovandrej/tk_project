@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AvtoparkController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\CargoController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +22,11 @@ Route::view('/perevozka-gruza-refrizheratorom', 'info.info4')->name('info4');
 
 
 //cargo pages
-Route::view('/chto-my-perevozim', 'cargos')->name('cargos');
+Route::get('/chto-my-perevozim', [CargoController::class, 'index'])->name('cargos');
+Route::get('/chto-my-perevozim/{slug}', [CargoController::class, 'show'])->name('cargo');
 
 Route::view('/perevozka-opasnyh-gruzov', 'cargos.cargo1')->name('cargo1');
+
 Route::view('/perevozka-skoroportyaschihsya-gruzov', 'cargos.cargo2')->name('cargo2');
 Route::view('/perevozka-farmacevticheskih-tovarov', 'cargos.cargo3')->name('cargo3');
 Route::view('/perevozka-krupnogabaritnyh-gruzov', 'cargos.cargo4')->name('cargo4');
