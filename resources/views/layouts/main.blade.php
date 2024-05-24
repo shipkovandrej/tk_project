@@ -4,16 +4,11 @@
     @yield('title')
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="shortcut icon" type="image/ico" href="images/icons/favicon.ico"/>
+    <link rel="shortcut icon" type="image/ico" href="/images/icons/favicon.ico"/>
 
     <link rel="canonical" href="index.html"/>
 
-    <meta property="og:title" content="О компании"/>
-    <meta property="og:description" content=""/>
-    <meta property="og:image" content="https://www.tk-go.ru/images/logo.png"/>
-    <meta property="og:url" content="https://www.tk-go.ru/about/"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:site_name" content="Грузовое объединение"/>
+
     <link rel="apple-touch-icon" href="../images/apple-touch-icon-60x60.png"/>
     <link rel="apple-touch-icon" sizes="76x76" href="../images/apple-touch-icon-76x76.png"/>
     <link rel="apple-touch-icon" sizes="120x120" href="../images/apple-touch-icon-120x120.png"/>
@@ -142,7 +137,7 @@
             <div class="menucontent">
                 <ul class="menu_top1">
                     <li class="active"><a href="{{route('about')}}">О компании</a></li>
-                    <li class=""><a href="{{ route('info') }}">Полезная информация</a></li>
+                    <li class=""><a href="{{ route('infos') }}">Полезная информация</a></li>
                     <li class="dropdown ">
                         <a href="{{ route('avtopark') }}" class="dropdown-toggle">Наш автопарк</a>
                         <ul class="">
@@ -254,7 +249,7 @@
 
                 <ul class="menu_footer">
                     <li class="active"><a href="{{ route('about')}}">О компании</a></li>
-                    <li class=""><a href="{{ route('info')}}">Полезная информация</a></li>
+                    <li class=""><a href="{{ route('infos')}}">Полезная информация</a></li>
                     <li class=""><a href="../policy/index.html">Политика конфиденциальности</a></li>
                     <li class=""><a href="{{ route('contacts')}}">Контакты</a></li>
                 </ul>

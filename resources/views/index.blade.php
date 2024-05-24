@@ -137,80 +137,25 @@
                 парк транспортных средств, что позволяет нам гибко подходить к требованиям каждого клиента.
             </div>
             <ul class="servicelist">
-                <li>
-                    <div class="service_item" onclick="location.href='{{ route('cargo1') }}'">
-                        <div class="img"><a class="goto" title="Перевозка опасных грузов"
-                                            href="{{ route('cargo1') }}"><img
-                                    src="cache/service_category_photos/500x300x0x63f8bd87002f3.jpg"
-                                    alt="Перевозка опасных грузов"></a></div>
-                        <span class="counter">01</span>
-                        <div class="title"><img src="upload/service_category_photos/63f8b7983ef3c.png"> <span>Перевозка опасных грузов</span>
+
+                @foreach($cargos as $cargo)
+                    <li>
+                        <div class="service_item"
+                             onclick="location.href='{{ route('cargo', ['slug' => $cargo->slug]) }}'">
+                            <div class="img"><a class="goto" title="{{ $cargo->name }}"
+                                                href="{{ route('cargo', ['slug' => $cargo->slug]) }}"><img
+                                        src="{{ $cargo->mini_img->path }}"
+                                        alt="{{ $cargo->name }}"></a></div>
+                            <span class="counter"></span>
+                            <div class="title"><img src="{{ $cargo->logo_img->path }}"> <span>{{ $cargo->name }}</span>
+                            </div>
+                            <div class="desc">
+                                {{ card_cutter($cargo->card) }}
+                            </div>
                         </div>
-                        <div class="desc">Компания «Грузовое объединение» более 13 лет специализируется на перевозке
-                            опасных
-                            грузов. Наш автопарк...
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="service_item"
-                         onclick="location.href='{{ route('cargo2') }}'">
-                        <div class="img"><a class="goto" title="Перевозка скоропортящихся грузов"
-                                            href="{{ route('cargo2') }}"><img
-                                    src="cache/service_category_photos/500x300x0x63fc97e18d3bb.jpg"
-                                    alt="Перевозка скоропортящихся грузов"></a></div>
-                        <span class="counter">02</span>
-                        <div class="title"><img src="upload/service_category_photos/63fc96cf0fa6f.png"> <span>Перевозка скоропортящихся грузов</span>
-                        </div>
-                        <div class="desc">Своевременная и безопасная доставка скоропортящегося груза имеет очень важное
-                            значение, поэтому мы предлагаем...
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="service_item"
-                         onclick="location.href='{{ route('cargo3') }}'">
-                        <div class="img"><a class="goto" title="Перевозка фармацевтических товаров"
-                                            href="{{ route('cargo3') }}"><img
-                                    src="cache/service_category_photos/500x300x0x63fc9a7fe0d13.jpg"
-                                    alt="Перевозка фармацевтических товаров"></a></div>
-                        <span class="counter">03</span>
-                        <div class="title"><img src="upload/service_category_photos/63fc9ae587ac6.png"> <span>Перевозка фармацевтических товаров</span>
-                        </div>
-                        <div class="desc">Компания «Грузовое объединение» специализируется на перевозке фармацевтических
-                            товаров...
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="service_item"
-                         onclick="location.href='{{ route('cargo4') }}'">
-                        <div class="img"><a class="goto" title="Перевозка крупногабаритных грузов"
-                                            href="{{ route('cargo4') }}"><img
-                                    src="cache/service_category_photos/500x300x0x63fc9bbaefdd6.jpg"
-                                    alt="Перевозка крупногабаритных грузов"></a></div>
-                        <span class="counter">04</span>
-                        <div class="title"><img src="upload/service_category_photos/63fc9d52bbf52.png"> <span>Перевозка крупногабаритных грузов</span>
-                        </div>
-                        <div class="desc">Компания «Грузовое объединение» имеет многолетний опыт в сфере автоперевозок
-                            крупногабаритных грузов...
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="service_item" onclick="location.href='{{ route('cargo5') }}'">
-                        <div class="img"><a class="goto" title="Перевозка сборных грузов "
-                                            href="{{ route('cargo5') }}"><img
-                                    src="cache/service_category_photos/500x300x0x63fc9fd4117f2.jpg"
-                                    alt="Перевозка сборных грузов "></a></div>
-                        <span class="counter">05</span>
-                        <div class="title"><img src="upload/service_category_photos/63fc9fdc513e9.png"> <span>Перевозка сборных грузов </span>
-                        </div>
-                        <div class="desc">Компания «Грузовое объединение» предлагает широкий спектр услуг по организации
-                            перевозок сборных любых...
-                        </div>
-                    </div>
-                </li>
+                    </li>
+                @endforeach
+
                 <li><a href="{{ route('cargos') }}" class="more">Смотреть все типы груза, которые мы
                         перевозим</a>
                 </li>
@@ -477,42 +422,22 @@
                 <div class="scrol-params" data-thumb="" data-auto="" data-count="4" data-pagination=""
                      data-dots=""></div>
                 <ul class="horscroll-list ul">
+                    @foreach($infos as $info)
                     <li>
-                        <a href="{{ route('info1') }}" class="event_item">
+                        <a href="{{ route('info', ['slug' => $info]) }}" class="event_item">
 
-                            <img src="cache/events_photos/400x500x1x63f8b33b6dacb.jpg"/>
+                            <img src="{{ $info->img->path }}"/>
                             <span class="info_wrapper">
-<span class="title">Как посчитать объем груза?</span>
-<span class="anons">Этот вопрос мы часто слышим от наших клиентов, поскольку выбор транспорта и стоимость перевозки зависят напрямую от объема груза...</span></span></a>
+<span class="title">{{ $info->name }}</span>
+<span class="anons">
+{{ info_cutter($info->content, 9) }}
+</span></span></a>
                     </li>
-                    <li>
-                        <a href="{{ route('info2') }}" class="event_item">
+                    @endforeach
 
-                            <img src="cache/events_photos/400x500x1x63f8b39086d66.jpg"/>
-                            <span class="info_wrapper">
-<span class="title">Правила проведения погрузочно-разгрузочных работ</span>
-<span
-    class="anons">В целях обеспечения безопасности при выполнении погрузочно-разгрузочных работ необходимо...</span></span></a>
-                    </li>
-                    <li>
-                        <a href="{{ route('info3') }}" class="event_item">
-
-                            <img src="cache/events_photos/400x500x1x63f8b3e2ae50e.jpg"/>
-                            <span class="info_wrapper">
-<span class="title">Как определить расстояние перевозки груза?</span>
-<span class="anons">Определение расстояния перевозки грузов играет важную роль при разработке плана перевозок, расчёте тарифов...</span></span></a>
-                    </li>
-                    <li>
-                        <a href="{{ route('info4') }}" class="event_item">
-
-                            <img src="cache/events_photos/400x500x1x63f8b3bddbeb8.jpg"/>
-                            <span class="info_wrapper">
-<span class="title">Перевозка груза рефрижератором</span>
-<span class="anons">Рефрижераторные перевозки могут осуществляться различными видами транспорта, но при больших объемах погрузо-разгрузочных...</span></span></a>
-                    </li>
                 </ul>
             </div>
-            <div class="alllinks_wrapper"><a href="{{ route('info') }}">Смотреть все статьи</a></div>
+            <div class="alllinks_wrapper"><a href="{{ route('infos') }}">Смотреть все статьи</a></div>
             <div class="text_after"></div>
         </div>
     </div>

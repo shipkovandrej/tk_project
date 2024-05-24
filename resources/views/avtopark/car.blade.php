@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="price_call">
-                    <div class="price">от ? руб/км</div>
+                    <div class="price">от {{ $price }} руб/км</div>
                     <a href="../module/callback/form/index.html@category=2" class="service_callback" rel="facebox">Оставить
                         заявку</a>
                 </div>
@@ -180,7 +180,7 @@
     </div>
 
     <div class="widgetblock-faq_category_2 widgetblock faq">
-        <div class="container"><h2 class="wtitle">Часто задаваемые вопросы о перевозке фурой</h2>
+        <div class="container"><h2 class="wtitle">Часто задаваемые вопросы</h2>
             <div class="widget-text">
                  {!! $truck->pre_text_2 !!}
             </div>

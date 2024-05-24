@@ -3,23 +3,28 @@
 use App\Http\Controllers\AvtoparkController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CargoController;
+use App\Http\Controllers\InfoController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'index')->name('index');
+//Route::view('/', 'index')->name('index');
+Route::get('/', [MainController::class, 'index'])->name('index');
 Route::view('/about', 'about')->name('about');
 Route::view('/napravlenia', 'directions')->name('directions');
 Route::view('/contacts', 'contacts')->name('contacts');
 
 
 //info pages
-Route::view('/info', 'info')->name('info');
-
+//Route::view('/info', 'info')->name('infos');
+Route::get('/info/', [InfoController::class, 'index'])->name('infos');
+Route::get('/info/{slug}', [InfoController::class, 'show'])->name('info');
+/*
 Route::view('/kak-poschitat-ob-em-gruza', 'info.info1')->name('info1');
 Route::view('/pravila-provedeniya-pogruzochno-razgruzochnyh-rabot', 'info.info2')->name('info2');
 Route::view('/kak-opredelit-rasstoyanie-perevozki-gruza', 'info.info3')->name('info3');
 Route::view('/perevozka-gruza-refrizheratorom', 'info.info4')->name('info4');
-
+*/
 
 //cargo pages
 Route::get('/chto-my-perevozim', [CargoController::class, 'index'])->name('cargos');

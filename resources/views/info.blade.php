@@ -21,39 +21,16 @@
 
     <div class="container">
         <div class="row event-item-category articles">
-            <div class="col-md-6 col-xl-3">
-                <a href="{{ route('info1') }}" class="event_item">
+            @foreach($infos as $info)
+                <div class="col-md-6 col-xl-3">
+                    <a href="{{ route('info', ['slug' => $info->slug]) }}" class="event_item">
 
-                    <img src="../cache/events_photos/400x500x1x63f8b33b6dacb.jpg"/>
-                    <span class="info_wrapper">
-<span class="title">Как посчитать объем груза?</span>
-<span class="anons">Этот вопрос мы часто слышим от наших клиентов, поскольку выбор транспорта и стоимость перевозки зависят напрямую от объема груза...</span></span></a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a href="{{ route('info2') }}" class="event_item">
-
-                    <img src="../cache/events_photos/400x500x1x63f8b39086d66.jpg"/>
-                    <span class="info_wrapper">
-<span class="title">Правила проведения погрузочно-разгрузочных работ</span>
-<span
-    class="anons">В целях обеспечения безопасности при выполнении погрузочно-разгрузочных работ необходимо...</span></span></a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a href="{{ route('info3') }}" class="event_item">
-
-                    <img src="../cache/events_photos/400x500x1x63f8b3e2ae50e.jpg"/>
-                    <span class="info_wrapper">
-<span class="title">Как определить расстояние перевозки груза?</span>
-<span class="anons">Определение расстояния перевозки грузов играет важную роль при разработке плана перевозок, расчёте тарифов...</span></span></a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a href="{{ route('info4') }}" class="event_item">
-
-                    <img src="../cache/events_photos/400x500x1x63f8b3bddbeb8.jpg"/>
-                    <span class="info_wrapper">
-<span class="title">Перевозка груза рефрижератором</span>
-<span class="anons">Рефрижераторные перевозки могут осуществляться различными видами транспорта, но при больших объемах погрузо-разгрузочных...</span></span></a>
-            </div>
+                        <img src="{{ $info->img->path }}"/>
+                        <span class="info_wrapper">
+<span class="title">{{ $info->name }}</span>
+<span class="anons">{{ info_cutter($info->content, 9) }}</span></span></a>
+                </div>
+            @endforeach
         </div>
     </div>
 

@@ -4,11 +4,9 @@ if (!function_exists('data_avg')) {
     {
         $min = min($list);
         $max = max($list);
-
         if ($min == "0" and $max == "0") {
             return null;
         }
-
         return $min == $max ? $min : $min . " - " . $max;
     }
 }
@@ -16,13 +14,9 @@ if (!function_exists('data_avg')) {
 if (!function_exists('card_cutter')) {
     function card_cutter($str)
     {
-
         $str = strip_tags($str);
-
         $arr = explode(" ", $str);
-
         $res = "";
-
         for ($i = 0; $i < 12; $i++) {
             $res .= $arr[$i];
 
@@ -30,19 +24,25 @@ if (!function_exists('card_cutter')) {
                 $res .= " ";
             }
         }
-
         $res .= "...";
         return $res;
     }
 }
-/*
-Компания «Грузовое объединение» более 13 лет специализируется на перевозке опасных грузов. Наш автопарк...  103 13
 
-Своевременная и безопасная доставка скоропортящегося груза имеет очень важное значение, поэтому мы предлагаем... 109 13
+if (!function_exists('info_cutter')) {
+    function info_cutter($str, $int)
+    {
+        $str = strip_tags($str);
+        $arr = explode(" ", $str);
+        $res = "";
+        for ($i = 0; $i < $int; $i++) {
+            $res .= $arr[$i];
 
-Компания «Грузовое объединение» специализируется на перевозке фармацевтических товаров... 86 8
-
-Компания «Грузовое объединение» имеет многолетний опыт в сфере автоперевозок крупногабаритных грузов... 100 11
-
-Компания «Грузовое объединение» предлагает широкий спектр услуг по организации перевозок сборных любых... 102 12
-*/
+            if ($i != ($int-1)) {
+                $res .= " ";
+            }
+        }
+        $res .= "...";
+        return $res;
+    }
+}
