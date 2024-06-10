@@ -58,6 +58,7 @@ class ParameterResource extends Resource
                     ->label('Палетто-место'),
                 Forms\Components\Select::make('trailer_id')
                     ->label('Прицеп')
+                    ->native(true)
                     ->placeholder('Без прицепа')
                     ->options(Trailer::all()->pluck( 'id', 'id'))
 
@@ -91,7 +92,7 @@ class ParameterResource extends Resource
                     ->label('Объем')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('price')
-                    ->money()
+
                     ->label('Цена')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('psp')
