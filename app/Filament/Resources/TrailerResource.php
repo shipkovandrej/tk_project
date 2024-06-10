@@ -25,14 +25,22 @@ class TrailerResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('id')
+                    ->numeric()
+                    ->disabled()
+                    ->default(request()->route()->parameter('record'))
+                    ->label('id'),
                 Forms\Components\TextInput::make('length')
                     ->required()
+                    ->label('Длина')
                     ->numeric(),
                 Forms\Components\TextInput::make('width')
                     ->required()
+                    ->label('Ширина')
                     ->numeric(),
                 Forms\Components\TextInput::make('height')
                     ->required()
+                    ->label('Высота')
                     ->numeric(),
             ]);
     }
@@ -41,14 +49,19 @@ class TrailerResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('length')
                     ->numeric()
+                    ->label('Длина')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('width')
                     ->numeric()
+                    ->label('Ширина')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('height')
                     ->numeric()
+                    ->label('Высота')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

@@ -23,8 +23,14 @@ class ImgResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('id')
+                    ->numeric()
+                    ->disabled()
+                    ->default(request()->route()->parameter('record'))
+                    ->label('id'),
                 Forms\Components\TextInput::make('path')
                     ->required()
+                    ->label('Путь к файлу')
                     ->maxLength(255),
             ]);
     }
@@ -33,7 +39,10 @@ class ImgResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('path')
+                    ->label('Путь к файлу')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

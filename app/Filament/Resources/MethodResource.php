@@ -23,8 +23,14 @@ class MethodResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('id')
+                    ->numeric()
+                    ->disabled()
+                    ->default(request()->route()->parameter('record'))
+                    ->label('id'),
                 Forms\Components\TextInput::make('name')
                     ->required()
+                    ->label('Название')
                     ->maxLength(100),
             ]);
     }
@@ -36,6 +42,7 @@ class MethodResource extends Resource
                 Tables\Columns\TextColumn::make('id')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Название')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
