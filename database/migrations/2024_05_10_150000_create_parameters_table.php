@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('parameters', function (Blueprint $table) {
             $table->id();
 
-            $table->decimal('payload', 4, 2);
+            $table->decimal('payload', 6, 2);
             $table->decimal('length', 6, 2);
-            $table->decimal('width', 3, 2);
-            $table->decimal('height', 3, 2);
+            $table->decimal('width', 6, 2);
+            $table->decimal('height', 6, 2);
             $table->decimal('volume', 6, 2)->nullable();
             $table->decimal('price', 6, 2);
             $table->integer('psp')->nullable();

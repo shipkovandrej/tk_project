@@ -19,12 +19,7 @@ Route::view('/contacts', 'contacts')->name('contacts');
 //Route::view('/info', 'info')->name('infos');
 Route::get('/info/', [InfoController::class, 'index'])->name('infos');
 Route::get('/info/{slug}', [InfoController::class, 'show'])->name('info');
-/*
-Route::view('/kak-poschitat-ob-em-gruza', 'info.info1')->name('info1');
-Route::view('/pravila-provedeniya-pogruzochno-razgruzochnyh-rabot', 'info.info2')->name('info2');
-Route::view('/kak-opredelit-rasstoyanie-perevozki-gruza', 'info.info3')->name('info3');
-Route::view('/perevozka-gruza-refrizheratorom', 'info.info4')->name('info4');
-*/
+
 
 //cargo pages
 Route::get('/chto-my-perevozim', [CargoController::class, 'index'])->name('cargos');
@@ -41,13 +36,7 @@ Route::view('/perevozka-sbornyh-gruzov', 'cargos.cargo5')->name('cargo5');
 //avtopark pages
 Route::get('/avtopark', [AvtoparkController::class, 'index'])->name('avtopark');
 Route::get('/avtopark/{slug}', [CarController::class, 'index'])->name('car');
-/*
-Route::view('/avtopark1/fura', 'avtopark.car1')->name('car1');
-Route::view('/avtopark1/avtopoezd', 'avtopark.car2')->name('car2');
-Route::view('/avtopark1/odinochka', 'avtopark.car3')->name('car3');
-Route::view('/avtopark1/gazel', 'avtopark.car4')->name('car4');
-Route::view('/avtopark1/tral', 'avtopark.car5')->name('car5');
-*/
+
 //test page
 Route::get('/test', [TestController::class, 'index'])->name('test');
 

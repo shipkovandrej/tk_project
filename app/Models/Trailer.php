@@ -9,6 +9,8 @@ class Trailer extends Model
 {
     use HasFactory;
 
+
+
     public function parameters()
     {
         return $this->hasMany(Parameter::class, 'trailer_id', 'id');
