@@ -8,7 +8,11 @@ use App\Models\Img;
 use App\Models\Trailer;
 use App\Models\Truck;
 use Filament\Forms;
+use Filament\Forms\Components\CheckboxList;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
+use Filament\Forms\Components\Group;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -25,6 +29,7 @@ class TruckResource extends Resource
     {
         return $form
             ->schema([
+
                 Forms\Components\TextInput::make('id')
                     ->numeric()
                     ->disabled()
@@ -45,26 +50,52 @@ class TruckResource extends Resource
                     ->required()
                     ->label('Текст 2')
                     ->columnSpanFull(),
-                Forms\Components\Select::make('img_id')
+
+
+                Select::make('types')
+                    ->placeholder('Выберите тип кузова')
+                    ->multiple()
+                    ->preload()
+                    ->relationship('types', 'name')
+                    ->label('Типы кузова'),
+
+                Select::make('methods')
+                    ->placeholder('Выберите способ погрузки')
+                    ->multiple()
+                    ->preload()
+                    ->relationship('methods', 'name')
+                    ->label('Способ погрузки'),
+
+                Select::make('img_id')
                     ->label('Картинка')
                     ->required()
                     ->placeholder('Картинка обязательна')
                     ->native(false)
-                    ->options(Img::all()->pluck( 'id', 'id')),
+                    ->options(Img::all()->pluck('id', 'id')),
 
-                Forms\Components\Select::make('mini_img_id')
+                Select::make('mini_img_id')
                     ->label('Мини картинка')
                     ->required()
                     ->placeholder('Картинка обязательна')
                     ->native(false)
-                    ->options(Img::all()->pluck( 'id', 'id')),
-                Forms\Components\Select::make('spec_img_id')
+                    ->options(Img::all()->pluck('id', 'id')),
+                Select::make('spec_img_id')
                     ->label('Картинка вида')
                     ->required()
                     ->placeholder('Картинка обязательна')
                     ->native(false)
-                    ->options(Img::all()->pluck( 'id', 'id')),
+                    ->options(Img::all()->pluck('id', 'id')),
+
+                Select::make('questions')
+                    ->placeholder('Выберите часто задаваемые вопросы')
+                    ->required()
+                    ->multiple()
+                    ->preload()
+                    ->relationship('questions', 'name')
+                    ->label('Часто задаваемые вопросы'),
+
             ]);
+
     }
 
     public static function table(Table $table): Table
@@ -76,8 +107,7 @@ class TruckResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->label('Название')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->searchable(),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

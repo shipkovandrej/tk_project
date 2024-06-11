@@ -7,6 +7,9 @@ use App\Filament\Resources\CargoResource\RelationManagers;
 use App\Models\Cargo;
 use App\Models\Img;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -24,57 +27,65 @@ class CargoResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('id')
+                TextInput::make('id')
                     ->numeric()
                     ->readOnly()
                     ->default(request()->route()->parameter('record'))
                     ->label('id'),
 
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->required()
                     ->label('Название')
                     ->maxLength(255),
 
-                Forms\Components\TextInput::make('slug')
+                TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
 
-                Forms\Components\Textarea::make('card')
+                Textarea::make('card')
                     ->required()
                     ->label('Текст в карточке')
                     ->columnSpanFull(),
 
-                Forms\Components\Textarea::make('pre_text_1')
+                Textarea::make('pre_text_1')
                     ->required()
                     ->label('Текст 1')
                     ->columnSpanFull(),
 
-                Forms\Components\Textarea::make('pre_text_2')
+                Textarea::make('pre_text_2')
                     ->required()
                     ->label('Текст 2')
                     ->columnSpanFull(),
 
-                Forms\Components\TextInput::make('price')
+                TextInput::make('price')
                     ->required()
                     ->label('Цена')
                     ->numeric()
                     ->prefix('₽'),
 
-                Forms\Components\Select::make('img_id')
+                Select::make('questions')
+                    ->placeholder('Выберите часто задаваемые вопросы')
+                    ->required()
+                    ->multiple()
+                    ->preload()
+                    ->relationship('questions', 'name')
+                    ->label('Часто задаваемые вопросы'),
+
+                Select::make('img_id')
                     ->label('Картинка')
                     ->required()
                     ->placeholder('Картинка обязательна')
                     ->native(false)
                     ->options(Img::all()->pluck( 'id', 'id')),
 
-                Forms\Components\Select::make('mini_img_id')
+                Select::make('mini_img_id')
                     ->label('Мини картинка')
                     ->required()
                     ->placeholder('Картинка обязательна')
                     ->native(false)
                     ->options(Img::all()->pluck( 'id', 'id')),
 
-                Forms\Components\Select::make('mini_img_id')
+                Select::make('mini_img_id')
                     ->label('Лого')
                     ->required()
                     ->placeholder('Картинка обязательна')
@@ -93,8 +104,7 @@ class CargoResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->searchable(),
+
                 Tables\Columns\TextColumn::make('price')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
