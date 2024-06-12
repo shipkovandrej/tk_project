@@ -6,14 +6,13 @@ use App\Filament\Resources\InfoResource\Pages;
 use App\Filament\Resources\InfoResource\RelationManagers;
 use App\Models\Info;
 use Filament\Forms;
-use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\TextInput;
 
 class InfoResource extends Resource
 {
@@ -25,19 +24,31 @@ class InfoResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')
+                Forms\Components\TextInput::make('id')
+                    ->numeric()
+                    ->disabled()
+                    ->default(request()->route()->parameter('record'))
+                    ->placeholder('Для получения id записи, её сперва нужно создать')
+                    ->label('id'),
+                Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->label('Название')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('slug')
+                    ->unique()
                     ->required()
                     ->maxLength(255),
-                TextInput::make('slug')
+                RichEditor::make('content')
                     ->required()
-                    ->maxLength(255),
-                Textarea::make('content')
-                    ->required()
+                    ->label('Содержание')
+
                     ->columnSpanFull(),
-                TextInput::make('img_id')
+                Forms\Components\TextInput::make('img_id')
+                    ->label('Картинка')
                     ->required()
                     ->numeric(),
-                TextInput::make('mini_img_id')
+                Forms\Components\TextInput::make('mini_img_id')
+                    ->label('Мини картинка')
                     ->required()
                     ->numeric(),
             ]);
@@ -52,7 +63,6 @@ class InfoResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->label('Название')
                     ->searchable(),
-
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

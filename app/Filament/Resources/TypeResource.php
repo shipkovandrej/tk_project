@@ -26,6 +26,7 @@ class TypeResource extends Resource
                 Forms\Components\TextInput::make('id')
                     ->numeric()
                     ->disabled()
+                    ->placeholder('Для получения id записи, её сперва нужно создать')
                     ->default(request()->route()->parameter('record'))
                     ->label('id'),
                 Forms\Components\TextInput::make('name')

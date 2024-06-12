@@ -29,6 +29,7 @@ class TrailerResource extends Resource
                     ->numeric()
                     ->disabled()
                     ->default(request()->route()->parameter('record'))
+                    ->placeholder('Для получения id записи, её сперва нужно создать')
                     ->label('id'),
                 Forms\Components\TextInput::make('length')
                     ->required()

@@ -27,6 +27,7 @@ class ParameterResource extends Resource
                 Forms\Components\TextInput::make('id')
                     ->numeric()
                     ->disabled()
+                    ->placeholder('Для получения id записи, её сперва нужно создать')
                     ->default(request()->route()->parameter('record'))
                     ->label('id'),
                 Forms\Components\TextInput::make('payload')
@@ -58,7 +59,7 @@ class ParameterResource extends Resource
                     ->label('Палетто-место'),
                 Forms\Components\Select::make('trailer_id')
                     ->label('Прицеп')
-                    ->native(true)
+                    ->native(false)
                     ->placeholder('Без прицепа')
                     ->options(Trailer::all()->pluck( 'id', 'id'))
 
@@ -113,6 +114,7 @@ class ParameterResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('trailer_id')
                     ->numeric()
+
                     ->label('Прицеп')
                     ->sortable(),
             ])

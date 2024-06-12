@@ -2,10 +2,13 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\MethodResource\Pages;
-use App\Filament\Resources\MethodResource\RelationManagers;
-use App\Models\Method;
+use App\Filament\Resources\SpecResource\Pages;
+use App\Filament\Resources\SpecResource\RelationManagers;
+use App\Models\Img;
+use App\Models\Parameter;
+use App\Models\Spec;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -13,9 +16,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class MethodResource extends Resource
+class SpecResource extends Resource
 {
-    protected static ?string $model = Method::class;
+    protected static ?string $model = Spec::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -32,7 +35,21 @@ class MethodResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->label('Название')
-                    ->maxLength(100),
+                    ->maxLength(255),
+                Select::make('parameter_id')
+                    ->placeholder('Выберите номер характиристики')
+                    ->required()
+                    ->preload()
+                    ->native(false)
+                    ->options(Parameter::all()->pluck('id', 'id'))
+                    ->label('Номер характеристики'),
+                Select::make('truck')
+                    ->placeholder('Выберите вид машины')
+                    ->preload()
+                    ->required()
+                    ->native(false)
+                    ->relationship('truck', 'name')
+                    ->label('Вид машины'),
             ]);
     }
 
@@ -42,6 +59,7 @@ class MethodResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->sortable(),
+
                 Tables\Columns\TextColumn::make('name')
                     ->label('Название')
                     ->searchable(),
@@ -57,6 +75,12 @@ class MethodResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('parameter_id')
+                    ->label('Характеристики')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('truck.name')
+                ->label('Вид машины'),
             ])
             ->filters([
                 //
@@ -81,9 +105,9 @@ class MethodResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListMethods::route('/'),
-            'create' => Pages\CreateMethod::route('/create'),
-            'edit' => Pages\EditMethod::route('/{record}/edit'),
+            'index' => Pages\ListSpecs::route('/'),
+            'create' => Pages\CreateSpec::route('/create'),
+            'edit' => Pages\EditSpec::route('/{record}/edit'),
         ];
     }
 }

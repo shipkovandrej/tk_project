@@ -9,8 +9,11 @@ use App\Models\Trailer;
 use App\Models\Truck;
 use Filament\Forms;
 use Filament\Forms\Components\CheckboxList;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\Components\Group;
 use Filament\Resources\Resource;
@@ -30,23 +33,25 @@ class TruckResource extends Resource
         return $form
             ->schema([
 
-                Forms\Components\TextInput::make('id')
+                TextInput::make('id')
                     ->numeric()
                     ->disabled()
+                    ->placeholder('Для получения id записи, её сперва нужно создать')
                     ->default(request()->route()->parameter('record'))
                     ->label('id'),
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->required()
                     ->label('Название')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
+                TextInput::make('slug')
+                    ->unique()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('pre_text_1')
+                RichEditor::make('pre_text_1')
                     ->required()
                     ->label('Текст 1')
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('pre_text_2')
+                RichEditor::make('pre_text_2')
                     ->required()
                     ->label('Текст 2')
                     ->columnSpanFull(),

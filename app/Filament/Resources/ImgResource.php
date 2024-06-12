@@ -27,9 +27,11 @@ class ImgResource extends Resource
                     ->numeric()
                     ->disabled()
                     ->default(request()->route()->parameter('record'))
+                    ->placeholder('Для получения id записи, её сперва нужно создать')
                     ->label('id'),
                 Forms\Components\TextInput::make('path')
                     ->required()
+                    ->unique()
                     ->label('Путь к файлу')
                     ->maxLength(255),
             ]);

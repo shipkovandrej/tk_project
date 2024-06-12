@@ -23,9 +23,16 @@ class QuestionResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('id')
+                    ->numeric()
+                    ->disabled()
+                    ->default(request()->route()->parameter('record'))
+                    ->placeholder('Для получения id записи, её сперва нужно создать')
+                    ->label('id'),
                 Forms\Components\Textarea::make('name')
                     ->required()
                     ->label('Вопрос')
+
                     ->columnSpanFull(),
                 Forms\Components\Textarea::make('answer')
                     ->required()

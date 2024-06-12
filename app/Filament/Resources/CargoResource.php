@@ -7,6 +7,7 @@ use App\Filament\Resources\CargoResource\RelationManagers;
 use App\Models\Cargo;
 use App\Models\Img;
 use Filament\Forms;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -29,7 +30,7 @@ class CargoResource extends Resource
             ->schema([
                 TextInput::make('id')
                     ->numeric()
-                    ->readOnly()
+                    ->placeholder('Для получения id записи, её сперва нужно создать')
                     ->default(request()->route()->parameter('record'))
                     ->label('id'),
 
@@ -39,20 +40,21 @@ class CargoResource extends Resource
                     ->maxLength(255),
 
                 TextInput::make('slug')
+                    ->unique()
                     ->required()
                     ->maxLength(255),
 
-                Textarea::make('card')
+                RichEditor::make('card')
                     ->required()
                     ->label('Текст в карточке')
                     ->columnSpanFull(),
 
-                Textarea::make('pre_text_1')
+                RichEditor::make('pre_text_1')
                     ->required()
                     ->label('Текст 1')
                     ->columnSpanFull(),
 
-                Textarea::make('pre_text_2')
+                RichEditor::make('pre_text_2')
                     ->required()
                     ->label('Текст 2')
                     ->columnSpanFull(),
@@ -103,9 +105,11 @@ class CargoResource extends Resource
                 Tables\Columns\TextColumn::make('id')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Название')
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make('price')
+                    ->label('Цена')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -120,12 +124,15 @@ class CargoResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('img_id')
+                    ->label('Картинка')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('mini_img_id')
+                    ->label('Картинка мини')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('logo_img_id')
+                    ->label('Лого')
                     ->numeric()
                     ->sortable(),
             ])
