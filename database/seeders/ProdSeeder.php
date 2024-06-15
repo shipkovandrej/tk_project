@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Article;
 use App\Models\Cargo;
+use App\Models\Contact;
 use App\Models\Img;
 use App\Models\Info;
 use App\Models\Method;
@@ -1152,6 +1153,13 @@ class ProdSeeder extends Seeder
                             подходящий для различных требований.</p>",
             'img_id' => "41",
             'mini_img_id' => "42",
+        ));
+
+        //Контактная информация
+        Contact::create(array(
+            'address' => '344095 Г. РОСТОВ-НА-ДОНУ, УЛ. ШТАХАНОВСКОГО, 29А',
+            'url' => '<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>',
+            'phone' => "+7 961 290‑66‑66"
         ));
     }
 }

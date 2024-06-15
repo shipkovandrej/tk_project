@@ -7,6 +7,8 @@ use App\Filament\Resources\InfoResource\RelationManagers;
 use App\Models\Info;
 use Filament\Forms;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -24,33 +26,41 @@ class InfoResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('id')
+                TextInput::make('id')
                     ->numeric()
                     ->disabled()
                     ->default(request()->route()->parameter('record'))
                     ->placeholder('Для получения id записи, её сперва нужно создать')
                     ->label('id'),
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->required()
                     ->label('Название')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
+                TextInput::make('slug')
                     ->unique()
                     ->required()
                     ->maxLength(255),
                 RichEditor::make('content')
                     ->required()
                     ->label('Содержание')
+                    ->disableToolbarButtons([
+                        'attachFiles',
+                        'codeBlock',
+                    ])
 
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('img_id')
+                Select::make('img_id')
                     ->label('Картинка')
                     ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('mini_img_id')
+                    ->native(false)
+                    ->placeholder('Выберите картинку')
+                    ->relationship('mini_img', 'id'),
+                Select::make('mini_img_id')
                     ->label('Мини картинка')
                     ->required()
-                    ->numeric(),
+                    ->native(false)
+                    ->placeholder('Выберите картинку')
+                    ->relationship('mini_img', 'id'),
             ]);
     }
 

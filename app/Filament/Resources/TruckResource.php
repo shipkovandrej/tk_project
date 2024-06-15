@@ -50,10 +50,18 @@ class TruckResource extends Resource
                 RichEditor::make('pre_text_1')
                     ->required()
                     ->label('Текст 1')
+                    ->disableToolbarButtons([
+                        'attachFiles',
+                        'codeBlock',
+                    ])
                     ->columnSpanFull(),
                 RichEditor::make('pre_text_2')
                     ->required()
                     ->label('Текст 2')
+                    ->disableToolbarButtons([
+                        'attachFiles',
+                        'codeBlock',
+                    ])
                     ->columnSpanFull(),
 
 

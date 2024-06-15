@@ -42,7 +42,7 @@
                             <div>
                                 <div class="title"><a href="tel:+79612906666">+7 961 290‑66‑66</a></div>
 
-                                <div class="name">телефоны</div>
+                                <div class="name">наш телефон</div>
                             </div>
                         </div>
                     </li>
@@ -53,7 +53,7 @@
                             <div>
                                 <div class="title"><a href="mailto:zakaz@tk-go.ru">zakaz@tk-go.ru</a></div>
 
-                                <div class="name">телефоны</div>
+                                <div class="name">наша почта</div>
                             </div>
                         </div>
                     </li>
