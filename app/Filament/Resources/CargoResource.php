@@ -164,4 +164,5 @@ class CargoResource extends Resource
             'edit' => Pages\EditCargo::route('/{record}/edit'),
         ];
     }
+
 }

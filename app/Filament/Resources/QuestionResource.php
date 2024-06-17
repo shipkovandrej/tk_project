@@ -91,4 +91,14 @@ class QuestionResource extends Resource
             'edit' => Pages\EditQuestion::route('/{record}/edit'),
         ];
     }
+
+    public function delete($entity)
+    {
+        // Предположим, что у нас есть связь многие-ко-многим между `Post` и `Tag`
+        $entity->cargos()->detach(); // Открепляем все теги от записи
+
+        // Удаляем запись
+        $this->save($entity);
+    }
+
 }

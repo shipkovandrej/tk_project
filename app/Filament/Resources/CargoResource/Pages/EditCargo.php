@@ -14,6 +14,7 @@ class EditCargo extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+
         ];
     }
 }

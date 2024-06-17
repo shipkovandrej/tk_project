@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Cargo;
 use App\Models\Img;
 use App\Models\Parameter;
+use App\Models\Question;
 use App\Models\Spec;
 use App\Models\Trailer;
 use App\Models\Truck;
@@ -26,8 +28,11 @@ class TestController extends Controller
         //dd($slug);
        //$truck = Truck::find(1);
        //dd($truck->mini_img);
-        $res = rtrim(rtrim("3.00", "0"),".");
-        dd($res);
+        //$res = rtrim(rtrim("3.00", "0"),".");
+        //Cargo::find(1)->questions()->detach(Question::find(23));
+        //Question::find(23)->delete();
+        Question::find(25)->delete();
+        //dd($res);
 
 
     }

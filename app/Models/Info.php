@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Info extends Model
 {
@@ -23,4 +24,17 @@ class Info extends Model
     {
         return "slug";
     }
+/*
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($info) {
+            $info->img()->delete();
+            //$info->mini_img()->delete();
+        });
+    }
+*/
+
+
 }

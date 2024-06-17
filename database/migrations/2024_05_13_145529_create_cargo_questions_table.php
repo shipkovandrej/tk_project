@@ -21,8 +21,8 @@ return new class extends Migration
             $table->index('cargo_id', 'cargo_question_cargo_idx');
             $table->index('question_id', 'cargo_question_question_idx');
 
-            $table->foreign('cargo_id', 'cargo_question_cargo_fk')->on('cargos')->references('id');
-            $table->foreign('question_id', 'cargo_question_question_fk')->on('questions')->references('id');
+            $table->foreign('cargo_id', 'cargo_question_cargo_fk')->on('cargos')->references('id')->onDelete('cascade');
+            $table->foreign('question_id', 'cargo_question_question_fk')->on('questions')->references('id')->onDelete('cascade');
 
         });
     }
