@@ -21,8 +21,8 @@ return new class extends Migration
             $table->index('truck_id', 'truck_method_truck_idx');
             $table->index('method_id', 'truck_method_method_idx');
 
-            $table->foreign('truck_id', 'truck_method_truck_fk')->on('trucks')->references('id');
-            $table->foreign('method_id', 'truck_method_type_fk')->on('methods')->references('id');
+            $table->foreign('truck_id', 'truck_method_truck_fk')->on('trucks')->references('id')->onDelete('cascade');
+            $table->foreign('method_id', 'truck_method_type_fk')->on('methods')->references('id')->onDelete('cascade');
 
         });
     }

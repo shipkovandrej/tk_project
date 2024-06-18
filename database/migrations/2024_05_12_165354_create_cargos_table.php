@@ -24,15 +24,15 @@ return new class extends Migration
 
             $table->unsignedBigInteger('img_id');
             $table->index('img_id', 'img_idx3');
-            $table->foreign('img_id', 'img_idx3')->on('imgs')->references('id');
+            $table->foreign('img_id', 'img_idx3')->on('imgs')->references('id')->onDelete('cascade');
 
             $table->unsignedBigInteger('mini_img_id');
             $table->index('mini_img_id', 'img_idx4');
-            $table->foreign('mini_img_id', 'img_idx4')->on('imgs')->references('id');
+            $table->foreign('mini_img_id', 'img_idx4')->on('imgs')->references('id')->onDelete('cascade');
 
             $table->unsignedBigInteger('logo_img_id');
             $table->index('logo_img_id', 'img_idx9');
-            $table->foreign('logo_img_id', 'img_idx9')->on('imgs')->references('id');
+            $table->foreign('logo_img_id', 'img_idx9')->on('imgs')->references('id')->onDelete('cascade');
         });
     }
 

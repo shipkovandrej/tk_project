@@ -20,11 +20,11 @@ return new class extends Migration
 
             $table->unsignedBigInteger('parameter_id');
             $table->index('parameter_id', 'parameter_idx4');
-            $table->foreign('parameter_id', 'parameter_idxf4')->on('parameters')->references('id');
+            $table->foreign('parameter_id', 'parameter_idxf4')->on('parameters')->references('id')->onDelete('cascade');
 
             $table->unsignedBigInteger('truck_id');
             $table->index('truck_id', 'truck_idx5');
-            $table->foreign('truck_id', 'truck_idxf5')->on('trucks')->references('id');
+            $table->foreign('truck_id', 'truck_idxf5')->on('trucks')->references('id')->onDelete('cascade');
         });
     }
 

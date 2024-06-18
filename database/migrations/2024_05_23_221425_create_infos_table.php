@@ -22,11 +22,11 @@ return new class extends Migration
 
             $table->unsignedBigInteger('img_id');
             $table->index('img_id', 'img_idx12');
-            $table->foreign('img_id', 'img_idx12')->on('imgs')->references('id')->cascadeOnDelete();
+            $table->foreign('img_id', 'img_idx12')->on('imgs')->references('id')->onDelete('cascade');
 
             $table->unsignedBigInteger('mini_img_id');
             $table->index('mini_img_id', 'img_idx11');
-            $table->foreign('mini_img_id', 'img_idx11')->on('imgs')->references('id')->cascadeOnDelete();
+            $table->foreign('mini_img_id', 'img_idx11')->on('imgs')->references('id')->onDelete('cascade');
         });
     }
 

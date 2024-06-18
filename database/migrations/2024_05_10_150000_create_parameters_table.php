@@ -29,7 +29,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('trailer_id')->nullable();
             $table->index('trailer_id', 'trailer_idx');
-            $table->foreign('trailer_id', 'trailer_idxf')->on('trailers')->references('id');
+            $table->foreign('trailer_id', 'trailer_idxf')->references('id')->on('trailers')->onDelete('cascade');
         });
     }
 

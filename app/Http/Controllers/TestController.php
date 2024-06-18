@@ -31,9 +31,9 @@ class TestController extends Controller
         //$res = rtrim(rtrim("3.00", "0"),".");
         //Cargo::find(1)->questions()->detach(Question::find(23));
         //Question::find(23)->delete();
-        Question::find(25)->delete();
+        //Question::find(25)->delete();
         //dd($res);
-
+        //Question::find(23)->delete();
 
     }
 
