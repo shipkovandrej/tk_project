@@ -35,10 +35,8 @@ class TestController extends Controller
         //dd($res);
         //Question::find(23)->delete();
 
+        return view('test');
     }
 
-    public function test(Truck $slug)
-    {
-        dd($slug);
-    }
+
 }

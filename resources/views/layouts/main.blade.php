@@ -19,7 +19,6 @@
     @vite(['resources/css/style.css'])
 
 
-
     <script src="{{ asset('js/top.js') }}"></script>
     <script>
         var serverfullname = "https://www.tk-go.ru/";
@@ -38,7 +37,8 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="logo_wrapper">
-                        <a href="{{ route('index') }}"><img class="logo" src="../images/logo.png" alt="Грузовое объединение"/></a>
+                        <a href="{{ route('index') }}"><img class="logo" src="../images/logo.png"
+                                                            alt="Грузовое объединение"/></a>
                         <div class="underlogo">Автомобильные перевозки по всей России</div>
                     </div>
 
@@ -46,15 +46,14 @@
 
                 <div class="col-md-5">
                     <div class="region_callback_wrapper">
-                        <div class="phone_callback"><span class="phone">+7 961 290‑66‑66</span> <a class="callback"
-                                                                                                   rel="facebox"
-                                                                                                   href="../module/callback/form/index.html">Заказать
-                                звонок</a></div>
-                        <div class="basketcontainer" style="position: relative;"><span class="basket-place"> <span
-                                    class="basket"><a href="../basket/index.html" class="icon basket_icon"><span
-                                            class="basket_count">0</span></a></span></span></div>
+                        <div class="phone_callback">
+                            <span class="phone">+7 961 290‑66‑66</span>
+                            <a class="callback" rel="facebox" href="../module/callback/form/index.html">Заказать звонок</a>
+                        </div>
+
                         <div>
-                            <div class="region_selector"><a href="../action/cityselector/index.html" rel="facebox">Ростов-на-Дону</a>
+                            <div class="region_selector">
+                                <a href="../action/cityselector/index.html" rel="facebox">Ростов-на-Дону</a>
                             </div>
                         </div>
                     </div>
@@ -86,14 +85,19 @@
                         <li class="dropdown ">
                             <a href="{{ route('cargos') }}" class="dropdown-toggle">Что мы перевозим</a>
                             <ul class="">
-                                <li><a href="{{ route('cargo', ['slug' => 'perevozka-opasnyh-gruzov']) }}">Перевозка опасных грузов</a></li>
-                                <li><a href="{{ route('cargo', ['slug' => 'perevozka-skoroportyaschihsya-gruzov']) }}">Перевозка скоропортящихся
+                                <li><a href="{{ route('cargo', ['slug' => 'perevozka-opasnyh-gruzov']) }}">Перевозка
+                                        опасных грузов</a></li>
+                                <li><a href="{{ route('cargo', ['slug' => 'perevozka-skoroportyaschihsya-gruzov']) }}">Перевозка
+                                        скоропортящихся
                                         грузов</a></li>
-                                <li><a href="{{ route('cargo', ['slug' => 'perevozka-farmacevticheskih-tovarov']) }}">Перевозка фармацевтических
+                                <li><a href="{{ route('cargo', ['slug' => 'perevozka-farmacevticheskih-tovarov']) }}">Перевозка
+                                        фармацевтических
                                         товаров</a></li>
-                                <li><a href="{{ route('cargo', ['slug' => 'perevozka-krupnogabaritnyh-gruzov']) }}">Перевозка крупногабаритных грузов</a>
+                                <li><a href="{{ route('cargo', ['slug' => 'perevozka-krupnogabaritnyh-gruzov']) }}">Перевозка
+                                        крупногабаритных грузов</a>
                                 </li>
-                                <li><a href="{{ route('cargo', ['slug' => 'perevozka-sbornyh-gruzov']) }}">Перевозка сборных грузов </a></li>
+                                <li><a href="{{ route('cargo', ['slug' => 'perevozka-sbornyh-gruzov']) }}">Перевозка
+                                        сборных грузов </a></li>
                             </ul>
                         </li>
                         <li class="dropdown ">
@@ -151,14 +155,19 @@
                     <li class="dropdown ">
                         <a href="{{ route('cargos') }}" class="dropdown-toggle">Что мы перевозим</a>
                         <ul class="">
-                            <li><a href="{{ route('cargo', ['slug' => 'perevozka-opasnyh-gruzov']) }}">Перевозка опасных грузов</a></li>
-                            <li><a href="{{ route('cargo', ['slug' => 'perevozka-skoroportyaschihsya-gruzov']) }}">Перевозка скоропортящихся
+                            <li><a href="{{ route('cargo', ['slug' => 'perevozka-opasnyh-gruzov']) }}">Перевозка опасных
                                     грузов</a></li>
-                            <li><a href="{{ route('cargo', ['slug' => 'perevozka-farmacevticheskih-tovarov']) }}">Перевозка фармацевтических
+                            <li><a href="{{ route('cargo', ['slug' => 'perevozka-skoroportyaschihsya-gruzov']) }}">Перевозка
+                                    скоропортящихся
+                                    грузов</a></li>
+                            <li><a href="{{ route('cargo', ['slug' => 'perevozka-farmacevticheskih-tovarov']) }}">Перевозка
+                                    фармацевтических
                                     товаров</a></li>
-                            <li><a href="{{ route('cargo', ['slug' => 'perevozka-krupnogabaritnyh-gruzov']) }}">Перевозка крупногабаритных грузов</a>
+                            <li><a href="{{ route('cargo', ['slug' => 'perevozka-krupnogabaritnyh-gruzov']) }}">Перевозка
+                                    крупногабаритных грузов</a>
                             </li>
-                            <li><a href="{{ route('cargo', ['slug' => 'perevozka-sbornyh-gruzov']) }}">Перевозка сборных грузов </a></li>
+                            <li><a href="{{ route('cargo', ['slug' => 'perevozka-sbornyh-gruzov']) }}">Перевозка сборных
+                                    грузов </a></li>
                         </ul>
                     </li>
                     <li class="dropdown ">
@@ -208,7 +217,8 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="logo_wrapper">
-                    <a href="{{ route('index') }}"><img class="logo" src="../images/logo.png" alt="Грузовое объединение"/></a>
+                    <a href="{{ route('index') }}"><img class="logo" src="../images/logo.png"
+                                                        alt="Грузовое объединение"/></a>
                     <div class="underlogo">Автомобильные перевозки по всей России</div>
                 </div>
                 <ul class="footer_contacts ul">
@@ -233,14 +243,19 @@
                 <div class="title bold">Перевозимые типы груза</div>
 
                 <ul class="popularservicepopular menu_footer">
-                    <li><a href="{{ route('cargo', ['slug' => 'perevozka-opasnyh-gruzov']) }}">Перевозка опасных грузов</a></li>
-                    <li><a href="{{ route('cargo', ['slug' => 'perevozka-skoroportyaschihsya-gruzov']) }}">Перевозка скоропортящихся
+                    <li><a href="{{ route('cargo', ['slug' => 'perevozka-opasnyh-gruzov']) }}">Перевозка опасных
                             грузов</a></li>
-                    <li><a href="{{ route('cargo', ['slug' => 'perevozka-farmacevticheskih-tovarov']) }}">Перевозка фармацевтических
+                    <li><a href="{{ route('cargo', ['slug' => 'perevozka-skoroportyaschihsya-gruzov']) }}">Перевозка
+                            скоропортящихся
+                            грузов</a></li>
+                    <li><a href="{{ route('cargo', ['slug' => 'perevozka-farmacevticheskih-tovarov']) }}">Перевозка
+                            фармацевтических
                             товаров</a></li>
-                    <li><a href="{{ route('cargo', ['slug' => 'perevozka-krupnogabaritnyh-gruzov']) }}">Перевозка крупногабаритных грузов</a>
+                    <li><a href="{{ route('cargo', ['slug' => 'perevozka-krupnogabaritnyh-gruzov']) }}">Перевозка
+                            крупногабаритных грузов</a>
                     </li>
-                    <li><a href="{{ route('cargo', ['slug' => 'perevozka-sbornyh-gruzov']) }}">Перевозка сборных грузов </a></li>
+                    <li><a href="{{ route('cargo', ['slug' => 'perevozka-sbornyh-gruzov']) }}">Перевозка сборных
+                            грузов </a></li>
                 </ul>
 
             </div>
@@ -280,7 +295,7 @@
             <tr>
                 <td class="ccol2">
                     <div class="logo"><a href="{{ route('index') }}"><img class="logo" src="../images/logo.png"
-                                                                   alt="Грузовое объединение"/></a></div>
+                                                                          alt="Грузовое объединение"/></a></div>
                 </td>
                 <td class="col3">
                     <ul class="top_mobile_icons">
