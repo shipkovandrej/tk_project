@@ -23,7 +23,11 @@ class FormController extends Controller
         ]);
         $validated = $validator->validated();
 
+        $name = $validated['name'];
         $string = $validated['phone'];
+        $name = preg_replace('/[0-9]+/iu', '', $name);
+        $name = strip_tags($name);
+
 
         $phone = preg_replace('/[\-\(\)\s_]+/', '', $string);
 
@@ -32,8 +36,9 @@ class FormController extends Controller
                 'phone', 'Поле должно быть заполненным'
             );
 
-
         }
+
+
 
         $errors = $validator->errors();
 
