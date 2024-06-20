@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const routes = [
     {
-        path: '/',
+        path: '/test1',
         element: <div>Hello laravel 11</div>,
     }
 ];

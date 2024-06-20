@@ -3,6 +3,7 @@
 use App\Http\Controllers\AvtoparkController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CargoController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\TestController;
@@ -10,6 +11,9 @@ use Illuminate\Support\Facades\Route;
 
 //Route::view('/', 'index')->name('index');
 Route::get('/', [MainController::class, 'index'])->name('index');
+//Route::view('/{any?}', 'test');
+
+
 Route::view('/about', 'about')->name('about');
 Route::view('/napravlenia', 'directions')->name('directions');
 Route::view('/contacts', 'contacts')->name('contacts');
@@ -40,4 +44,5 @@ Route::get('/avtopark/{slug}', [CarController::class, 'index'])->name('car');
 //test page
 Route::get('/test', [TestController::class, 'index'])->name('test');
 
+Route::post('/form', [FormController::class, 'modal_first'])->name('modal1');
 
