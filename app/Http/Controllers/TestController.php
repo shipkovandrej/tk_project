@@ -34,6 +34,16 @@ class TestController extends Controller
         //Question::find(25)->delete();
         //dd($res);
         //Question::find(23)->delete();
+        /*
+        dd(mail_sender([
+            'Тайтл' => 'Тайтл письма',
+            'subject' => 'Заказ звонка',
+            'Имя' => 'Иван Иванов',
+            'Возраст' => 10,
+        ]));
+
+        */
+        //dd(phone_maker('9034255651'));
 
         return view('test');
     }

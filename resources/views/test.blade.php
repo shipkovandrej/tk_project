@@ -51,7 +51,12 @@
                     Подтверждаю свое согласие на обработку персональных данных
                 </label>
             </div>
-            <button type="submit" class="btn btn-primary">Заказать звонок</button>
+            <button type="submit" class="btn btn-primary" name="submit">Заказать звонок</button>
+            @error('submit')
+            <div class="alert alert-danger" role="alert">
+                {{ $message }}
+            </div>
+            @enderror
             @if(session()->has('modal_1_success'))
                 <div class="alert alert-success">
                     {{ session()->get('modal_1_success') }}
