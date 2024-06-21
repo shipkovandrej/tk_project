@@ -14225,6 +14225,11 @@ ul.direction li {
     max-width: 850px
 }
 
+.feedback_place_wrapper_error {
+
+    max-width: 850px
+}
+
 .service_callback:hover {
     color: #fff;
     text-decoration: none;
@@ -15448,7 +15453,7 @@ body {
     }
 
     .getcostfeedback {
-        background: url(../../public/images/getcostfeedback.jpg) no-repeat right;
+        background-color: #efefef;
         padding-top: 80px;
         padding-bottom: 80px
     }

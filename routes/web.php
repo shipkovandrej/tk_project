@@ -44,5 +44,5 @@ Route::get('/avtopark/{slug}', [CarController::class, 'index'])->name('car');
 //test page
 Route::get('/test', [TestController::class, 'index'])->name('test');
 
-Route::post('/form', [FormController::class, 'modal_first'])->name('modal1');
-
+Route::post('/form/modal', [FormController::class, 'modal_first'])->name('modal1');
+Route::post('/form/cal', [FormController::class, 'calculaiton'])->name('calculation');
