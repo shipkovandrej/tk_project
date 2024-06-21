@@ -57,7 +57,7 @@ class FormController extends Controller
             return redirect()->back()->with('modal_1_success', 'Все прошло успешно');
         } else {
             $validator->errors()->add(
-                'submit', 'Что-то пошло не так, повторите попытку позlytt'
+                'submit', 'Что-то пошло не так, повторите попытку позднее'
             );
 
             return redirect()->back()
@@ -132,9 +132,29 @@ class FormController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
+        //return Redirect::to(URL::route('index') . '#count_div')
+        $mail = mail_sender([
+            'subject' => 'Расчет стоимости',
+            'Имя' => $name,
+            'Телефон' => phone_maker($phone),
+            'Машина' => $transport,
+            'Откуда' => $from,
+            'Куда' => $to,
+            'Вес' => $weight,
+        ]);
 
-        dd($from, $to, $weight, $name, phone_maker($phone), $transport);
-        return 1;
+        if ($mail) {
+            $url = redirect()->back()->getTargetUrl();
+            return Redirect::to($url . '#count_div')->with('calc_form_success', 'Все прошло успешно');
+        } else {
+            $validator->errors()->add(
+                'submit', 'Что-то пошло не так, повторите попытку позднее'
+            );
+
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
     }
 }

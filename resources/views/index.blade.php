@@ -344,12 +344,12 @@
                     </div>
 
 
-
                 </div>
                 <div class="fb_wrapper_item">
                     <div class="lbl">Транспорт перевозки</div>
                     <div class="feedback_transport_wrapper">
-                        <div class="active"><input type="radio" name="transport" value="Фура" checked="checked">Фура</div>
+                        <div class="active"><input type="radio" name="transport" value="Фура" checked="checked">Фура
+                        </div>
                         <div><input type="radio" name="transport" value="Автопоезд">Автопоезд</div>
                         <div><input type="radio" name="transport" value="Одиночка">Одиночка</div>
                         <div><input type="radio" name="transport" value="Газель">Газель</div>
@@ -430,6 +430,18 @@
                         @enderror
                     </div>
                     <button class="btn">Заказать</button>
+                    <div class="feedback_place_wrapper_error mt-4">
+                        @if(session()->has('calc_form_success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('calc_form_success') }}
+                            </div>
+                        @endif
+                        @error('submit')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
                 </div>
 
                 <div class="policy">Нажимая кнопку &laquo;Заказать&raquo;, я подтверждаю свое согласие на обработку <a
