@@ -145,7 +145,7 @@ class FormController extends Controller
 
         if ($mail) {
             $url = redirect()->back()->getTargetUrl();
-            return Redirect::to($url . '#count_div')->with('calc_form_success', 'Все прошло успешно');
+            return Redirect::to($url . '#count_div')->with('calc_form_success', 'Данные отправлены, ожидайте звонка');
         } else {
             $validator->errors()->add(
                 'submit', 'Что-то пошло не так, повторите попытку позднее'

@@ -462,6 +462,7 @@
             <div class="text_after"></div>
         </div>
     </div>
+    <div id="react_calc_form"></div>
     <div class="widgetblock-newsonmain widgetblock news">
         <div class="container"><h2 class="wtitle">Полезная информация</h2>
             <div class="widget-text">
