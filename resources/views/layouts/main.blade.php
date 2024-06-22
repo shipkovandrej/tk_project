@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
 <head>
     @yield('title')
@@ -22,7 +22,7 @@
 
     <script src="{{ asset('js/top.js') }}"></script>
     <script>
-        var serverfullname = "https://www.tk-go.ru/";
+        var serverfullname = "http://127.0.0.1:8000/";
         window.dataLayer = window.dataLayer || [];
     </script>
 
@@ -48,7 +48,7 @@
                 <div class="col-md-5">
                     <div class="region_callback_wrapper">
                         <div class="phone_callback">
-                            <span class="phone">+7 961 290‑66‑66</span>
+                            <span class="phone">{{ \App\Models\Contact::find(1)->phone }}</span>
                             <a class="callback" rel="facebox" href="../module/callback/form/index.html">Заказать звонок</a>
                         </div>
 
@@ -224,18 +224,18 @@
                 </div>
                 <ul class="footer_contacts ul">
                     <li>
-                        <div class="phone bold"><a href="tel:+79612906666">+7 961 290‑66‑66</a></div>
-                        <div class="phone bold"><a href="tel:+79612906666">+7 961 290‑66‑66</a></div>
+                        <div class="phone bold"><a href="tel:{{phone_maker_contacts(\App\Models\Contact::find(1)->phone)}}">{{ \App\Models\Contact::find(1)->phone }}</a></div>
+                        <div class="phone bold"><a href="tel:{{phone_maker_contacts(\App\Models\Contact::find(1)->phone)}}">{{ \App\Models\Contact::find(1)->phone }}</a></div>
                     </li>
                     <li>
                         <div><a class="callback" rel="facebox" href="../module/callback/form/index.html">Заказать
                                 звонок</a></div>
                     </li>
                     <li>
-                        <div class="email"><a href="https://www.tk-go.ru/zakaz@tk-go.ru">zakaz@tk-go.ru</a></div>
+                        <div class="email"><a href="mailto:{{ $email }}">{{ \App\Models\Contact::find(1)->email }}</a></div>
                     </li>
                     <li>
-                        <div class="adress-footer">344095 г. Ростов-на-Дону, ул. Штахановского, 29А</div>
+                        <div class="adress-footer">{{ \App\Models\Contact::find(1)->address }}</div>
                     </li>
                 </ul>
 

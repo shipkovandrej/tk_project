@@ -94,7 +94,7 @@ if (!function_exists('phone_maker_contacts')) {
     function phone_maker_contacts($phone)
     {
         $phone = preg_replace('#[\s\-]+#', '', $phone);
-
+        //dd($phone);
         return $phone;
     }
 }

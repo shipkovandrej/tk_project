@@ -1157,9 +1157,9 @@ class ProdSeeder extends Seeder
 
         //Контактная информация
         Contact::create(array(
-            'address' => '344095 Г. РОСТОВ-НА-ДОНУ, УЛ. ШТАХАНОВСКОГО, 29А',
+            'address' => '344095 г. Ростов-на-Дону, ул. Штахановского, 29А',
             'url' => '<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>',
-            'phone' => "+7 961 290‑66‑66",
+            'phone' => "+7 961 290-66-66",
             'email' => "tk4client@yandex.ru"
         ));
     }

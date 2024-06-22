@@ -350,8 +350,7 @@
                     </div>
                 </div>
 
-                <div class="policy">Нажимая кнопку &laquo;Заказать&raquo;, я подтверждаю свое согласие на обработку <a
-                        href="policy/index.html" target="_blank">персональных данных</a></div>
+                <div class="policy">Нажимая кнопку &laquo;Заказать&raquo;, я подтверждаю свое согласие на обработку персональных данных</div>
 
             </form>
             <script>

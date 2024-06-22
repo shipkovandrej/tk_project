@@ -92,7 +92,7 @@
 
             });
 
-            var myPlacemark = new ymaps.Placemark([47.290626, 39.73271], {balloonContent: "ул. Штахановского, 29А"}, {
+            var myPlacemark = new ymaps.Placemark([47.290626, 39.73271], {balloonContent: "{{ $address }}"}, {
                 iconLayout: "default#image",
                 iconImageHref: "/upload/contacticons/63f8944fcdb5f.png",
                 iconImageSize: [206, 206],
