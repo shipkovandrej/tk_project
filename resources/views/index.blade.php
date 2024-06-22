@@ -365,7 +365,7 @@
                                    class="input formname form-control" required value="{{ old('name') }}"></div>
                         <div>
                             <div class="lbl">Телефон</div>
-                            <ul class="ul phonecontrol_wrapper" style="display: flex;" class="ul_phone">
+                            <ul class="ul phonecontrol_wrapper" style="display: flex;" >
                                 <li style="width:50px"><input type="text" name="phone_code" class="form-control"
                                                               readonly="readonly" value="+7" id="phonecode_phone"
                                                               style="width: 50px;"></li>
@@ -429,7 +429,7 @@
                         </div>
                         @enderror
                     </div>
-                    <button class="btn">Заказать</button>
+                    <div id="react_calc_button"></div>
                     <div class="feedback_place_wrapper_error mt-4">
                         @if(session()->has('calc_form_success'))
                             <div class="alert alert-success">
@@ -462,7 +462,7 @@
             <div class="text_after"></div>
         </div>
     </div>
-    <div id="react_calc_form"></div>
+
     <div class="widgetblock-newsonmain widgetblock news">
         <div class="container"><h2 class="wtitle">Полезная информация</h2>
             <div class="widget-text">

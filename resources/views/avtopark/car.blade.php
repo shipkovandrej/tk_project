@@ -123,7 +123,8 @@
                                                 </td>
                                                 <td>
                                                     <div class="name">Работаем по правилам</div>
-                                                    <div class="description"><p>Мы следуем всем необходимым&nbsp;правилам и
+                                                    <div class="description"><p>Мы следуем всем необходимым&nbsp;правилам
+                                                            и
                                                             нормам
                                                             для перевозки грузов</p>
                                                     </div>
@@ -143,7 +144,8 @@
                                                 </td>
                                                 <td>
                                                     <div class="name">Ответственный подход</div>
-                                                    <div class="description"><p>Мы берем на себя ответственность за каждый этап
+                                                    <div class="description"><p>Мы берем на себя ответственность за
+                                                            каждый этап
                                                             перевозки груза перед отправителем</p>
                                                     </div>
                                                 </td>
@@ -162,7 +164,8 @@
                                                 </td>
                                                 <td>
                                                     <div class="name">Доставка в срок</div>
-                                                    <div class="description"><p>Гарантируем быструю и эффективную доставку
+                                                    <div class="description"><p>Гарантируем быструю и эффективную
+                                                            доставку
                                                             грузов по месту назначения</p>
                                                     </div>
                                                 </td>
@@ -182,7 +185,7 @@
     <div class="widgetblock-faq_category_2 widgetblock faq">
         <div class="container"><h2 class="wtitle">Часто задаваемые вопросы</h2>
             <div class="widget-text">
-                 {!! $truck->pre_text_2 !!}
+                {!! $truck->pre_text_2 !!}
             </div>
             <ul class="faqlist">
                 @foreach($questions as $question)
@@ -203,36 +206,59 @@
             <div class="text_after"></div>
         </div>
     </div>
-    <div class="widgetblock-getcost widgetblock getcostfeedback">
+    <div class="widgetblock-getcost widgetblock getcostfeedback" id="count_div">
         <div class="container"><h2 class="wtitle">Расчет стоимости доставки</h2>
-            <div class="widget-text">Стоимость доставки зависит от ряда факторов и рассчитывается индивидуально для каждого
-                нашими специалистами. Оставьте заявку в форме обратной связи, и наш менеджер свяжется с вами в течении 15
+            <div class="widget-text">Стоимость доставки зависит от ряда факторов и рассчитывается индивидуально для
+                каждого
+                нашими специалистами. Оставьте заявку в форме обратной связи, и наш менеджер свяжется с вами в течении
+                15
                 минут.
             </div>
-            <form id="page-submit" class="question-page" method="post" onsubmit="SendRequest(this);return false;">
+            <form id="page-submit" class="question-page" action="{{ route('calculation') }}" method="POST">
+                @csrf
                 <div class="fb_wrapper_item">
                     <div class="feedback_place_wrapper">
                         <div>
                             <div class="lbl">Место загрузки</div>
-                            <input class="form-control" type="text" name="Место загрузки"
-                                   placeholder="Страна, регион, населенный пункт"></div>
+                            <input class="form-control" type="text" name="from"
+                                   placeholder="Регион, населенный пункт" required value="{{ old('from') }}">
+                        </div>
                         <div>
                             <div class="lbl">Место выгрузки</div>
-                            <input class="form-control" type="text" name="Место выгрузки"
-                                   placeholder="Страна, регион, населенный пункт"></div>
+                            <input class="form-control" type="text" name="to"
+                                   placeholder="Регион, населенный пункт" required value="{{ old('to') }}">
+                        </div>
                         <div>
                             <div class="lbl">Вес груза</div>
-                            <input class="form-control" type="text" placeholder="Кг" name="Вес (кг)"></div>
+                            <input class="form-control" type="number" placeholder="Кг" name="weight" required
+                                   value="{{ old('weight') }}">
+                        </div>
                     </div>
+                    <div class="feedback_place_wrapper_error">
+                        @error('weight')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+
+                        @error('from')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+
                 </div>
                 <div class="fb_wrapper_item">
                     <div class="lbl">Транспорт перевозки</div>
                     <div class="feedback_transport_wrapper">
-                        <div class="active"><input type="radio" name="Транспорт" value="Фура" checked="checked">Фура</div>
-                        <div><input type="radio" name="Транспорт" value="Автопоезд">Автопоезд</div>
-                        <div><input type="radio" name="Транспорт" value="Одиночка">Одиночка</div>
-                        <div><input type="radio" name="Транспорт" value="Газель">Газель</div>
-                        <div><input type="radio" name="Транспорт" value="Трал">Трал</div>
+                        <div class="active"><input type="radio" name="transport" value="Фура" checked="checked">Фура
+                        </div>
+                        <div><input type="radio" name="transport" value="Автопоезд">Автопоезд</div>
+                        <div><input type="radio" name="transport" value="Одиночка">Одиночка</div>
+                        <div><input type="radio" name="transport" value="Газель">Газель</div>
+                        <div><input type="radio" name="transport" value="Трал">Трал</div>
 
                     </div>
                 </div>
@@ -240,18 +266,21 @@
                     <div class="feedback_place_wrapper feedback_place_wrapper_contacts">
                         <div>
                             <div class="lbl">Контактное лицо</div>
-                            <input type="text" name="Имя" value="" placeholder="Ваше имя"
-                                   class="input formname form-control" required></div>
+                            <input type="text" name="name" placeholder="Ваше имя"
+                                   class="input formname form-control" required value="{{ old('name') }}"></div>
                         <div>
                             <div class="lbl">Телефон</div>
-                            <ul class="ul phonecontrol_wrapper" style="display: flex;" class="ul_phone">
+                            <ul class="ul phonecontrol_wrapper" style="display: flex;">
                                 <li style="width:50px"><input type="text" name="phone_code" class="form-control"
                                                               readonly="readonly" value="+7" id="phonecode_phone"
                                                               style="width: 50px;"></li>
-                                <li style="width:calc(100% - 50px);padding-left:10px;"><input
-                                        class="inputphone form-control" placeholder="Телефон" id="phone_phone" type="text"
-                                        required name="phone">
-                                    <div class="phonerror_local" style="display: none;font-size: 10pt;color: red;">Номер
+                                <li style="width:calc(100% - 50px);padding-left:10px;">
+                                    <input
+                                        class="inputphone form-control" placeholder="Телефон" id="phone_phone"
+                                        type="text"
+                                        required name="phone" value="{{ old('phone') }}">
+                                    <div class="phonerror_local" style="display: none;font-size: 10pt;color: red;">
+                                        Номер
                                         телефона должен начинаться с цифры <span id="fdigitext"></span></div>
                                 </li>
                             </ul>
@@ -293,10 +322,36 @@
                             </script>
                         </div>
                     </div>
-                    <button class="btn">Заказать</button>
+                    <div class="feedback_place_wrapper_error">
+                        @error('phone')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+
+                        @error('name')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div id="react_calc_button"></div>
+                    <div class="feedback_place_wrapper_error mt-4">
+                        @if(session()->has('calc_form_success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('calc_form_success') }}
+                            </div>
+                        @endif
+                        @error('submit')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
                 </div>
+
                 <div class="policy">Нажимая кнопку &laquo;Заказать&raquo;, я подтверждаю свое согласие на обработку <a
-                        href="../policy/index.html" target="_blank">персональных данных</a></div>
+                        href="policy/index.html" target="_blank">персональных данных</a></div>
 
             </form>
             <script>
@@ -317,31 +372,31 @@
         <div class="container">
             <ul class="goodsflow">
                 @foreach($specs as $spec)
-                <li>
-                    <div class="good_wrapper">
-                        <div class="i_c"><img alt="{{ $spec->name }}"
-                                              src="{{ $spec_img }}"></div>
-                        <div class="i_content">
-                            <div class="p-ttl">{{ $spec->name }}</div>
-                            <div class="p-ttl-minidesc">
-                                <ul>
-                                    <li>Длина - {{ rtrim(rtrim($spec->parameter->length,"0"),".") }} м</li>
-                                    <li>Ширина - {{ rtrim(rtrim($spec->parameter->width,"0"),".") }} м</li>
-                                    <li>Высота - {{ rtrim(rtrim($spec->parameter->height,"0"),".") }} м</li>
-                                    @if(!empty(data_avg($volumes)))
-                                        <li>Объем - {{intval($spec->parameter->volume)}} м3</li>
-                                    @endif
-                                    @if(!empty($spec->parameter->psp))
-                                        <li>Паллето-мест - {{ $spec->parameter->psp }} шт</li>
-                                    @endif
+                    <li>
+                        <div class="good_wrapper">
+                            <div class="i_c"><img alt="{{ $spec->name }}"
+                                                  src="{{ $spec_img }}"></div>
+                            <div class="i_content">
+                                <div class="p-ttl">{{ $spec->name }}</div>
+                                <div class="p-ttl-minidesc">
+                                    <ul>
+                                        <li>Длина - {{ rtrim(rtrim($spec->parameter->length,"0"),".") }} м</li>
+                                        <li>Ширина - {{ rtrim(rtrim($spec->parameter->width,"0"),".") }} м</li>
+                                        <li>Высота - {{ rtrim(rtrim($spec->parameter->height,"0"),".") }} м</li>
+                                        @if(!empty(data_avg($volumes)))
+                                            <li>Объем - {{intval($spec->parameter->volume)}} м3</li>
+                                        @endif
+                                        @if(!empty($spec->parameter->psp))
+                                            <li>Паллето-мест - {{ $spec->parameter->psp }} шт</li>
+                                        @endif
 
-                                </ul>
+                                    </ul>
+                                </div>
                             </div>
+                            <a href="../module/callback/form/index.html@good=3" class="service_callback" rel="fancybox">Оставить
+                                заявку</a>
                         </div>
-                        <a href="../module/callback/form/index.html@good=3" class="service_callback" rel="fancybox">Оставить
-                            заявку</a>
-                    </div>
-                </li>
+                    </li>
                 @endforeach
 
             </ul>

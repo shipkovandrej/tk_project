@@ -1,15 +1,5 @@
-import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import CalcButton from './CalcButton';
 
-const routes = [
-    {
-        path: '/test1',
-        element: <div>Hello laravel 11</div>,
-    }
-];
-
-createRoot(document.getElementById('root')).render(
-    <RouterProvider
-        router={createBrowserRouter(routes)}
-    />
-);
+ReactDOM.render(<CalcButton />, document.getElementById('react_calc_button'));

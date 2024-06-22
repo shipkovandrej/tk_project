@@ -3,6 +3,7 @@
 use App\Http\Controllers\AvtoparkController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CargoController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\MainController;
@@ -16,7 +17,7 @@ Route::get('/', [MainController::class, 'index'])->name('index');
 
 Route::view('/about', 'about')->name('about');
 Route::view('/napravlenia', 'directions')->name('directions');
-Route::view('/contacts', 'contacts')->name('contacts');
+Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
 
 
 //info pages
@@ -44,5 +45,7 @@ Route::get('/avtopark/{slug}', [CarController::class, 'index'])->name('car');
 //test page
 Route::get('/test', [TestController::class, 'index'])->name('test');
 
+//forms
 Route::post('/form/modal', [FormController::class, 'modal_first'])->name('modal1');
 Route::post('/form/cal', [FormController::class, 'calculaiton'])->name('calculation');
+Route::post('/form/ask', [FormController::class, 'ask'])->name('ask');

@@ -15,7 +15,8 @@
     <link rel="apple-touch-icon" sizes="152x152" href="../images/apple-touch-icon-152x152.png"/>
     <base href=""/>
 
-
+    @viteReactRefresh
+    @vite(['resources/js/app.jsx'])
     @vite(['resources/css/style.css'])
 
 

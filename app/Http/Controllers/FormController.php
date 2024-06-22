@@ -128,7 +128,9 @@ class FormController extends Controller
         $errors = $validator->errors();
 
         if ($errors->first()) {
-            return Redirect::to(URL::route('index') . '#count_div')
+            $url = redirect()->back()->getTargetUrl();
+
+            return Redirect::to($url . '#count_div')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -151,10 +153,74 @@ class FormController extends Controller
                 'submit', 'Что-то пошло не так, повторите попытку позднее'
             );
 
-            return redirect()->back()
+        }
+        return 1;
+    }
+
+    public function ask()
+    {
+        $validator = Validator::make(request()->all(), [
+            'name' => 'required|string',
+            'phone' => 'required',
+            'msg' => 'required',
+        ]);
+        $validated = $validator->validated();
+
+        $name = $validated['name'];
+        $string = $validated['phone'];
+        $msg = $validated['msg'];
+
+        //dd($transport);
+
+        $name = preg_replace('/[0-9]+/iu', '', $name);
+        $name = strip_tags($name);
+
+        if (empty($name)) {
+            $validator->errors()->add(
+                'name', 'Введите корректное имя'
+            );
+        }
+
+        $msg = strip_tags($msg);
+
+        if (empty($msg)) {
+            $validator->errors()->add(
+                'msg', 'Введите сообщение'
+            );
+        }
+
+        $phone = preg_replace('/[\-\(\)\s_]+/', '', $string);
+
+        if (strlen($phone) < 10) {
+            $validator->errors()->add(
+                'phone', 'Телефон должен быть заполнен'
+            );
+        }
+
+        $errors = $validator->errors();
+
+        if ($errors->first()) {
+            $url = redirect()->back()->getTargetUrl();
+            return Redirect::to($url . '#count_div')
                 ->withErrors($validator)
                 ->withInput();
         }
+        //return Redirect::to(URL::route('index') . '#count_div')
+        $mail = mail_sender([
+            'subject' => 'Вопрос от клиента',
+            'Имя' => $name,
+            'Телефон' => phone_maker($phone),
+            'Teкст сообщения' => $msg
+        ]);
 
+        if ($mail) {
+            $url = redirect()->back()->getTargetUrl();
+            return Redirect::to($url . '#count_div')->with('ask_form_success', 'Данные отправлены, ожидайте звонка');
+        } else {
+            $validator->errors()->add(
+                'submit', 'Что-то пошло не так, повторите попытку позднее'
+            );
+        }
+        return 1;
     }
 }

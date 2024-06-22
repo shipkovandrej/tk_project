@@ -163,7 +163,7 @@
             <div class="text_after"></div>
         </div>
     </div>
-    <div class="widgetblock-getcost widgetblock getcostfeedback">
+    <div class="widgetblock-getcost widgetblock getcostfeedback" id="count_div">
         <div class="container"><h2 class="wtitle">Расчет стоимости доставки</h2>
             <div class="widget-text">Стоимость доставки зависит от ряда факторов и рассчитывается индивидуально для
                 каждого
@@ -171,31 +171,51 @@
                 15
                 минут.
             </div>
-            <form id="page-submit" class="question-page" method="post" onsubmit="SendRequest(this);return false;">
+            <form id="page-submit" class="question-page" action="{{ route('calculation') }}" method="POST">
+                @csrf
                 <div class="fb_wrapper_item">
                     <div class="feedback_place_wrapper">
                         <div>
                             <div class="lbl">Место загрузки</div>
-                            <input class="form-control" type="text" name="Место загрузки"
-                                   placeholder="Страна, регион, населенный пункт"></div>
+                            <input class="form-control" type="text" name="from"
+                                   placeholder="Регион, населенный пункт" required value="{{ old('from') }}">
+                        </div>
                         <div>
                             <div class="lbl">Место выгрузки</div>
-                            <input class="form-control" type="text" name="Место выгрузки"
-                                   placeholder="Страна, регион, населенный пункт"></div>
+                            <input class="form-control" type="text" name="to"
+                                   placeholder="Регион, населенный пункт" required value="{{ old('to') }}">
+                        </div>
                         <div>
                             <div class="lbl">Вес груза</div>
-                            <input class="form-control" type="text" placeholder="Кг" name="Вес (кг)"></div>
+                            <input class="form-control" type="number" placeholder="Кг" name="weight" required
+                                   value="{{ old('weight') }}">
+                        </div>
                     </div>
+                    <div class="feedback_place_wrapper_error">
+                        @error('weight')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+
+                        @error('from')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+
                 </div>
                 <div class="fb_wrapper_item">
                     <div class="lbl">Транспорт перевозки</div>
                     <div class="feedback_transport_wrapper">
-                        <div class="active"><input type="radio" name="Транспорт" value="Фура" checked="checked">Фура
+                        <div class="active"><input type="radio" name="transport" value="Фура" checked="checked">Фура
                         </div>
-                        <div><input type="radio" name="Транспорт" value="Автопоезд">Автопоезд</div>
-                        <div><input type="radio" name="Транспорт" value="Одиночка">Одиночка</div>
-                        <div><input type="radio" name="Транспорт" value="Газель">Газель</div>
-                        <div><input type="radio" name="Транспорт" value="Трал">Трал</div>
+                        <div><input type="radio" name="transport" value="Автопоезд">Автопоезд</div>
+                        <div><input type="radio" name="transport" value="Одиночка">Одиночка</div>
+                        <div><input type="radio" name="transport" value="Газель">Газель</div>
+                        <div><input type="radio" name="transport" value="Трал">Трал</div>
 
                     </div>
                 </div>
@@ -203,18 +223,19 @@
                     <div class="feedback_place_wrapper feedback_place_wrapper_contacts">
                         <div>
                             <div class="lbl">Контактное лицо</div>
-                            <input type="text" name="Имя" value="" placeholder="Ваше имя"
-                                   class="input formname form-control" required></div>
+                            <input type="text" name="name" placeholder="Ваше имя"
+                                   class="input formname form-control" required value="{{ old('name') }}"></div>
                         <div>
                             <div class="lbl">Телефон</div>
-                            <ul class="ul phonecontrol_wrapper" style="display: flex;" class="ul_phone">
+                            <ul class="ul phonecontrol_wrapper" style="display: flex;" >
                                 <li style="width:50px"><input type="text" name="phone_code" class="form-control"
                                                               readonly="readonly" value="+7" id="phonecode_phone"
                                                               style="width: 50px;"></li>
-                                <li style="width:calc(100% - 50px);padding-left:10px;"><input
+                                <li style="width:calc(100% - 50px);padding-left:10px;">
+                                    <input
                                         class="inputphone form-control" placeholder="Телефон" id="phone_phone"
                                         type="text"
-                                        required name="phone">
+                                        required name="phone" value="{{ old('phone') }}">
                                     <div class="phonerror_local" style="display: none;font-size: 10pt;color: red;">Номер
                                         телефона должен начинаться с цифры <span id="fdigitext"></span></div>
                                 </li>
@@ -257,10 +278,35 @@
                             </script>
                         </div>
                     </div>
-                    <button class="btn">Заказать</button>
+                    <div class="feedback_place_wrapper_error">
+                        @error('phone')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+
+                        @error('name')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div id="react_calc_button"></div>
+                    <div class="feedback_place_wrapper_error mt-4">
+                        @if(session()->has('calc_form_success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('calc_form_success') }}
+                            </div>
+                        @endif
+                        @error('submit')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
                 </div>
-                <div class="policy">Нажимая кнопку &laquo;Заказать&raquo;, я подтверждаю свое согласие на обработку <a
-                        href="../policy/index.html" target="_blank">персональных данных</a></div>
+
+                <div class="policy">Нажимая кнопку &laquo;Заказать&raquo;, я подтверждаю свое согласие на обработку персональных данных</div>
 
             </form>
             <script>
