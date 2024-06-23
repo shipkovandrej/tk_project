@@ -2,7 +2,14 @@
 @section('title')
     <title>Грузовое объединение | Автомобильные перевозки по всей России</title>
 @stop
-
+@section('meta')
+    <meta property="og:title" content="Грузовое объединение | Автомобильные перевозки по всей России"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:image" content="../images/logo.png"/>
+    <meta property="og:url" content="{{ Illuminate\Routing\Route::current() }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="Грузовое объединение"/>
+@stop
 @section('content')
     <div class="slideronmain slider-widget" data-auto="" data-pagination="1" data-dots="">
         <div class="owl-carousel owl-theme"><a href="{{ route('avtopark') }}">

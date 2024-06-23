@@ -8,6 +8,7 @@
 
     <link rel="canonical" href="index.html"/>
 
+    @yield('meta')
 
     <link rel="apple-touch-icon" href="../images/apple-touch-icon-60x60.png"/>
     <link rel="apple-touch-icon" sizes="76x76" href="../images/apple-touch-icon-76x76.png"/>

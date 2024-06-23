@@ -2,7 +2,15 @@
 @section('title')
     <title>{{ $info->name }}</title>
 @stop
-
+@section('meta')
+    <meta property="og:title" content="Как определить расстояние перевозки груза?"/>
+    <meta property="og:description"
+          content="Полезная информация"/>
+    <meta property="og:image" content="../images/logo.png"/>
+    <meta property="og:url" content="{{ Illuminate\Routing\Route::current() }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="Грузовое объединение"/>
+@stop
 @section('content')
     <div class="crumble_wrapper">
         <div class="container">
