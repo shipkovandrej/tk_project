@@ -73,7 +73,11 @@
         </div>
     </div>
 
-
+    @php
+    $contact = \App\Models\Contact::find(1);
+    $coor_x = $contact->coor_x;
+    $coor_y = $contact->coor_y;
+    @endphp
     <div id="map">{!! $map !!}</div>
 
     <script type="text/javascript">
@@ -86,13 +90,13 @@
 
         function init() {
             myMap = new ymaps.Map("map", {
-                center: [47.290626, 39.73271],
+                center: [{{ $coor_x }}, {{ $coor_y }}],
                 zoom: 16,
                 controls: ["zoomControl", "fullscreenControl"]
 
             });
 
-            var myPlacemark = new ymaps.Placemark([47.290626, 39.73271], {balloonContent: "{{ $address }}"}, {
+            var myPlacemark = new ymaps.Placemark([{{ $coor_x }}, {{ $coor_y }}], {balloonContent: "{{ $address }}"}, {
                 iconLayout: "default#image",
                 iconImageHref: "/upload/contacticons/63f8944fcdb5f.png",
                 iconImageSize: [206, 206],

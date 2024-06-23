@@ -343,18 +343,21 @@
                         @enderror
                     </div>
 
+                    @php
+                        $trucks = \App\Models\Truck::all();
+                    @endphp
 
                 </div>
                 <div class="fb_wrapper_item">
                     <div class="lbl">Транспорт перевозки</div>
                     <div class="feedback_transport_wrapper">
-                        <div class="active"><input type="radio" name="transport" value="Фура" checked="checked">Фура
-                        </div>
-                        <div><input type="radio" name="transport" value="Автопоезд">Автопоезд</div>
-                        <div><input type="radio" name="transport" value="Одиночка">Одиночка</div>
-                        <div><input type="radio" name="transport" value="Газель">Газель</div>
-                        <div><input type="radio" name="transport" value="Трал">Трал</div>
-
+                        @foreach($trucks as $truck)
+                            @if ($loop->first)
+                                <div class="active"><input type="radio" name="transport" value="{{ $truck->name }}" checked="checked">{{ $truck->name }}</div>
+                            @else
+                                <div><input type="radio" name="transport" value="{{ $truck->name }}">{{ $truck->name }}</div>
+                            @endif
+                        @endforeach
                     </div>
                 </div>
                 <div class="fb_wrapper_item">

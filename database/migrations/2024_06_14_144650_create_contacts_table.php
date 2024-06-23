@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->text('address');
+            $table->string('coor_x');
+            $table->string('coor_y');
             $table->text('url');
             $table->string('phone', 25);
             $table->string('email');

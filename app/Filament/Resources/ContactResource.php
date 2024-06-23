@@ -35,6 +35,14 @@ class ContactResource extends Resource
                 Textarea::make('address')
                     ->required()
                     ->label('Адрес'),
+                TextInput::make('coor_x')
+                    ->required()
+                    ->numeric()
+                    ->label('координыты x'),
+                TextInput::make('coor_y')
+                    ->required()
+                    ->numeric()
+                    ->label('координыты y'),
                 Textarea::make('url')
                     ->required()
                     ->label('Код интерактивной карты'),
@@ -51,6 +59,9 @@ class ContactResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('phone')
+                    ->label('Номер телефона')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('address')
                     ->label('Номер телефона')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')

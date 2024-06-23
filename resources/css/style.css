@@ -13535,7 +13535,7 @@ a:hover {
 }
 
 .articlesblock .owl-prev {
-    background: url(https://www.tk-go.ru/images/arrow-left.png) no-repeat;
+    background: url(../../public/images/icons/arrow-left.png) no-repeat;
     width: 20px;
     height: 40px;
     display: inline-block;
@@ -13545,7 +13545,7 @@ a:hover {
 }
 
 .articlesblock .owl-next {
-    background: url(https://www.tk-go.ru/images/arrow-right.png) no-repeat;
+    background: url(../../public/images/icons/arrow-right.png) no-repeat;
     width: 20px;
     height: 40px;
     display: inline-block;

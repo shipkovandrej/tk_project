@@ -104,6 +104,11 @@
             </script>
         </div>
     </form>
+    @php
+        $var = "test";
+
+    @endphp
+{{ $var }}
 
 
 @endsection
