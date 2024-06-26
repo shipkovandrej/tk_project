@@ -5,13 +5,6 @@
 
 @section('content')
 
-
-
-
-
-
-
-
     <form action="{{ route('modal1') }}" method="POST">
         @csrf
         <div class="form-group">

@@ -6,7 +6,6 @@
     <meta property="og:title" content="Грузовое объединение | Автомобильные перевозки по всей России"/>
     <meta property="og:description" content=""/>
     <meta property="og:image" content="../images/logo.png"/>
-    <meta property="og:url" content="{{ Illuminate\Routing\Route::current() }}"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="Грузовое объединение"/>
 @stop
@@ -105,32 +104,32 @@
                 </div>
                 <div class="cities">
                     <ul class="direction">
-                        <li><a href="napravlenia/volgograd/index.html">в Волгоград</a></li>
-                        <li><a href="napravlenia/voronezh/index.html">в Воронеж</a></li>
-                        <li><a href="napravlenia/ekb/index.html">в Екатеринбург</a></li>
-                        <li><a href="napravlenia/kazan/index.html">в Казань</a></li>
-                        <li><a href="napravlenia/krasnodar/index.html">в Краснодар</a></li>
-                        <li><a href="napravlenia/krasnoyarsk/index.html">в Красноярск</a></li>
-                        <li><a href="napravlenia/lipeck/index.html">в Липецк</a></li>
-                        <li><a href="napravlenia/mineralnye-vody/index.html">в Минеральные Воды</a></li>
-                        <li><a href="napravlenia/msk/index.html">в Москву</a></li>
-                        <li><a href="napravlenia/nabcheln/index.html">в Набережные Челны</a></li>
-                        <li><a href="napravlenia/n-novgorod/index.html">в Нижний Новгород</a></li>
-                        <li><a href="napravlenia/novorossijsk/index.html">в Новороссийск</a></li>
-                        <li><a href="napravlenia/novosibirsk/index.html">в Новосибирск</a></li>
-                        <li><a href="napravlenia/omsk/index.html">в Омск</a></li>
-                        <li><a href="napravlenia/samara/index.html">в Самару</a></li>
-                        <li><a href="napravlenia/spb/index.html">в Санкт-Петербург</a></li>
-                        <li><a href="napravlenia/saratov/index.html">в Саратов</a></li>
-                        <li><a href="napravlenia/sochi/index.html">в Сочи</a></li>
-                        <li><a href="napravlenia/stavropol/index.html">в Ставрополь</a></li>
-                        <li><a href="napravlenia/toliaty/index.html">в Тольятти</a></li>
-                        <li><a href="napravlenia/tula/index.html">в Тулу</a></li>
-                        <li><a href="napravlenia/tumen/index.html">в Тюмень</a></li>
-                        <li><a href="napravlenia/ufa/index.html">в Уфу</a></li>
-                        <li><a href="napravlenia/chelyabinsk/index.html">в Челябинск</a></li>
+                        <li><a href="">в Волгоград</a></li>
+                        <li><a href="">в Воронеж</a></li>
+                        <li><a href="">в Екатеринбург</a></li>
+                        <li><a href="">в Казань</a></li>
+                        <li><a href="">в Краснодар</a></li>
+                        <li><a href="">в Красноярск</a></li>
+                        <li><a href="">в Липецк</a></li>
+                        <li><a href="">в Минеральные Воды</a></li>
+                        <li><a href="">в Москву</a></li>
+                        <li><a href="">в Набережные Челны</a></li>
+                        <li><a href="">в Нижний Новгород</a></li>
+                        <li><a href="">в Новороссийск</a></li>
+                        <li><a href="">в Новосибирск</a></li>
+                        <li><a href="">в Омск</a></li>
+                        <li><a href="">в Самару</a></li>
+                        <li><a href="">в Санкт-Петербург</a></li>
+                        <li><a href="">в Саратов</a></li>
+                        <li><a href="">в Сочи</a></li>
+                        <li><a href="">в Ставрополь</a></li>
+                        <li><a href="">в Тольятти</a></li>
+                        <li><a href="">в Тулу</a></li>
+                        <li><a href="">в Тюмень</a></li>
+                        <li><a href="">в Уфу</a></li>
+                        <li><a href="">в Челябинск</a></li>
                     </ul>
-                    <a href="module/callback/form/index.html" class="btn btninvert" rel="facebox">У меня есть груз</a>
+                    <a href="{{ route('index') . '#count_div' }}" class="btn btninvert">У меня есть груз</a>
                 </div>
 
             </div>
@@ -302,7 +301,7 @@
     </div>
     <section class="standartblock setclients">
         <div class="container">
-            <div class="alllinks_wrapper"><a href="module/callback/form/index.html" rel="facebox">Стать нашим
+            <div class="alllinks_wrapper"><a href="{{ route('contacts') . '#count_div' }}">Стать нашим
                     клиентом</a>
             </div>
         </div>
@@ -360,9 +359,11 @@
                     <div class="feedback_transport_wrapper">
                         @foreach($trucks as $truck)
                             @if ($loop->first)
-                                <div class="active"><input type="radio" name="transport" value="{{ $truck->name }}" checked="checked">{{ $truck->name }}</div>
+                                <div class="active"><input type="radio" name="transport" value="{{ $truck->name }}"
+                                                           checked="checked">{{ $truck->name }}</div>
                             @else
-                                <div><input type="radio" name="transport" value="{{ $truck->name }}">{{ $truck->name }}</div>
+                                <div><input type="radio" name="transport" value="{{ $truck->name }}">{{ $truck->name }}
+                                </div>
                             @endif
                         @endforeach
                     </div>
@@ -375,7 +376,7 @@
                                    class="input formname form-control" required value="{{ old('name') }}"></div>
                         <div>
                             <div class="lbl">Телефон</div>
-                            <ul class="ul phonecontrol_wrapper" style="display: flex;" >
+                            <ul class="ul phonecontrol_wrapper" style="display: flex;">
                                 <li style="width:50px"><input type="text" name="phone_code" class="form-control"
                                                               readonly="readonly" value="+7" id="phonecode_phone"
                                                               style="width: 50px;"></li>
@@ -454,7 +455,9 @@
                     </div>
                 </div>
 
-                <div class="policy">Нажимая кнопку &laquo;Заказать&raquo;, я подтверждаю свое согласие на обработку персональных данных</div>
+                <div class="policy">Нажимая кнопку &laquo;Заказать&raquo;, я подтверждаю свое согласие на обработку
+                    персональных данных
+                </div>
 
             </form>
             <script>

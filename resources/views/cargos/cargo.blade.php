@@ -6,7 +6,6 @@
     <meta property="og:title" content="Виды перевозимых грузов"/>
     <meta property="og:description" content=""/>
     <meta property="og:image" content="../images/logo.png"/>
-    <meta property="og:url" content="{{ Illuminate\Routing\Route::current() }}"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="Грузовое объединение"/>
 @stop
@@ -46,7 +45,7 @@
                     </div>
                     <div class="price_call">
                         <div class="price">от {{ rtrim(rtrim($cargo->price,"0"),".") }} руб./км.</div>
-                        <a href="../module/callback/form/index.html@service=1" class="service_callback" rel="facebox">Оставить
+                        <a href="{{ route('contacts') . '#count_div' }}" class="service_callback">Оставить
                             заявку</a>
                     </div>
                 </div>

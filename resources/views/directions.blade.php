@@ -1,12 +1,11 @@
 @extends('layouts.main')
 @section('title')
-    <title>Направление перевозок</title>
+    <title>Направления перевозок</title>
 @stop
 @section('meta')
     <meta property="og:title" content="Направление перевозок"/>
     <meta property="og:description" content=""/>
     <meta property="og:image" content="../images/logo.png"/>
-    <meta property="og:url" content="{{ Illuminate\Routing\Route::current() }}"/>
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Грузовое объединение" />
 @stop

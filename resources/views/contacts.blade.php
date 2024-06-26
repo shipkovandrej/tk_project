@@ -6,7 +6,6 @@
     <meta property="og:title" content="Контакты"/>
     <meta property="og:description" content=""/>
     <meta property="og:image" content="../images/logo.png"/>
-    <meta property="og:url" content="{{ Illuminate\Routing\Route::current() }}"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="Грузовое объединение"/>
 @stop

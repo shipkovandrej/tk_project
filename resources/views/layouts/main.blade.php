@@ -212,7 +212,7 @@
                         <div class="phone bold"><a href="tel:{{phone_maker_contacts(\App\Models\Contact::find(1)->phone)}}">{{ \App\Models\Contact::find(1)->phone }}</a></div>
                     </li>
                     <li>
-                        <div><a class="callback" rel="facebox" href="{{ route('contacts') . '#count_div' }}">Заказать
+                        <div><a class="callback" href="{{ route('contacts') . '#count_div' }}">Заказать
                                 звонок</a></div>
                     </li>
                     <li>
